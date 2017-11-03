@@ -28,7 +28,7 @@
 
 import QtQuick 2.2
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
+import masariComponents.Wallet 1.0
 import "components"
 
 Rectangle {
@@ -70,7 +70,7 @@ Rectangle {
     width: (isMobile)? appWindow.width : 260
     color: "#FFFFFF"
 
-    // Item with monero logo
+    // Item with masari logo
     Item {
         visible: !isMobile
         id: logoItem
@@ -84,7 +84,7 @@ Rectangle {
             id: logo
             anchors.left: parent.left
             anchors.leftMargin: 50
-            source: "images/moneroLogo.png"
+            source: "images/masariLogo.png"
         }
 
         Text {
@@ -278,7 +278,7 @@ Rectangle {
                 anchors.right: parent.right
                 text: qsTr("Send") + translationManager.emptyString
                 symbol: qsTr("S") + translationManager.emptyString
-                dotColor: "#FF6C3C"
+                dotColor: "#85BB65"
                 onClicked: {
                     parent.previousButton.checked = false
                     parent.previousButton = transferButton

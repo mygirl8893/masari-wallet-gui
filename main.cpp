@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -63,7 +63,7 @@
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     // Send all message types to logger
-    Monero::Wallet::debug(msg.toStdString());
+    Masari::Wallet::debug(msg.toStdString());
 }
 
 int main(int argc, char *argv[])
@@ -75,59 +75,59 @@ int main(int argc, char *argv[])
 //#endif
 
     // Log settings
-    Monero::Wallet::init(argv[0], "monero-wallet-gui");
+    Masari::Wallet::init(argv[0], "masari-wallet-gui");
 //    qInstallMessageHandler(messageHandler);
 
     MainApp app(argc, argv);
 
     qDebug() << "app startd";
 
-    app.setApplicationName("monero-core");
-    app.setOrganizationDomain("getmonero.org");
-    app.setOrganizationName("monero-project");
+    app.setApplicationName("masari-wallet-gui");
+    app.setOrganizationDomain("getmasari.org");
+    app.setOrganizationName("masari-project");
 
     filter *eventFilter = new filter;
     app.installEventFilter(eventFilter);
 
     // registering types for QML
-    qmlRegisterType<clipboardAdapter>("moneroComponents.Clipboard", 1, 0, "Clipboard");
+    qmlRegisterType<clipboardAdapter>("masariComponents.Clipboard", 1, 0, "Clipboard");
 
-    qmlRegisterUncreatableType<Wallet>("moneroComponents.Wallet", 1, 0, "Wallet", "Wallet can't be instantiated directly");
+    qmlRegisterUncreatableType<Wallet>("masariComponents.Wallet", 1, 0, "Wallet", "Wallet can't be instantiated directly");
 
 
-    qmlRegisterUncreatableType<PendingTransaction>("moneroComponents.PendingTransaction", 1, 0, "PendingTransaction",
+    qmlRegisterUncreatableType<PendingTransaction>("masariComponents.PendingTransaction", 1, 0, "PendingTransaction",
                                                    "PendingTransaction can't be instantiated directly");
 
-    qmlRegisterUncreatableType<UnsignedTransaction>("moneroComponents.UnsignedTransaction", 1, 0, "UnsignedTransaction",
+    qmlRegisterUncreatableType<UnsignedTransaction>("masariComponents.UnsignedTransaction", 1, 0, "UnsignedTransaction",
                                                    "UnsignedTransaction can't be instantiated directly");
 
-    qmlRegisterUncreatableType<WalletManager>("moneroComponents.WalletManager", 1, 0, "WalletManager",
+    qmlRegisterUncreatableType<WalletManager>("masariComponents.WalletManager", 1, 0, "WalletManager",
                                                    "WalletManager can't be instantiated directly");
 
-    qmlRegisterUncreatableType<TranslationManager>("moneroComponents.TranslationManager", 1, 0, "TranslationManager",
+    qmlRegisterUncreatableType<TranslationManager>("masariComponents.TranslationManager", 1, 0, "TranslationManager",
                                                    "TranslationManager can't be instantiated directly");
 
 
 
-    qmlRegisterUncreatableType<TransactionHistoryModel>("moneroComponents.TransactionHistoryModel", 1, 0, "TransactionHistoryModel",
+    qmlRegisterUncreatableType<TransactionHistoryModel>("masariComponents.TransactionHistoryModel", 1, 0, "TransactionHistoryModel",
                                                         "TransactionHistoryModel can't be instantiated directly");
 
-    qmlRegisterUncreatableType<TransactionHistorySortFilterModel>("moneroComponents.TransactionHistorySortFilterModel", 1, 0, "TransactionHistorySortFilterModel",
+    qmlRegisterUncreatableType<TransactionHistorySortFilterModel>("masariComponents.TransactionHistorySortFilterModel", 1, 0, "TransactionHistorySortFilterModel",
                                                         "TransactionHistorySortFilterModel can't be instantiated directly");
 
-    qmlRegisterUncreatableType<TransactionHistory>("moneroComponents.TransactionHistory", 1, 0, "TransactionHistory",
+    qmlRegisterUncreatableType<TransactionHistory>("masariComponents.TransactionHistory", 1, 0, "TransactionHistory",
                                                         "TransactionHistory can't be instantiated directly");
 
-    qmlRegisterUncreatableType<TransactionInfo>("moneroComponents.TransactionInfo", 1, 0, "TransactionInfo",
+    qmlRegisterUncreatableType<TransactionInfo>("masariComponents.TransactionInfo", 1, 0, "TransactionInfo",
                                                         "TransactionHistory can't be instantiated directly");
 #ifndef Q_OS_IOS
-    qmlRegisterUncreatableType<DaemonManager>("moneroComponents.DaemonManager", 1, 0, "DaemonManager",
+    qmlRegisterUncreatableType<DaemonManager>("masariComponents.DaemonManager", 1, 0, "DaemonManager",
                                                    "DaemonManager can't be instantiated directly");
 #endif
-    qmlRegisterUncreatableType<AddressBookModel>("moneroComponents.AddressBookModel", 1, 0, "AddressBookModel",
+    qmlRegisterUncreatableType<AddressBookModel>("masariComponents.AddressBookModel", 1, 0, "AddressBookModel",
                                                         "AddressBookModel can't be instantiated directly");
 
-    qmlRegisterUncreatableType<AddressBook>("moneroComponents.AddressBook", 1, 0, "AddressBook",
+    qmlRegisterUncreatableType<AddressBook>("masariComponents.AddressBook", 1, 0, "AddressBook",
                                                         "AddressBook can't be instantiated directly");
 
     qRegisterMetaType<PendingTransaction::Priority>();
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<TransactionHistoryModel::TransactionInfoRole>();
 
 #ifdef WITH_SCANNER
-    qmlRegisterType<QrCodeScanner>("moneroComponents.QRCodeScanner", 1, 0, "QRCodeScanner");
+    qmlRegisterType<QrCodeScanner>("masariComponents.QRCodeScanner", 1, 0, "QRCodeScanner");
 #endif
 
     QQmlApplicationEngine engine;
@@ -160,22 +160,22 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("daemonManager", daemonManager);
 #endif
 
-//  export to QML monero accounts root directory
+//  export to QML masari accounts root directory
 //  wizard is talking about where
 //  to save the wallet file (.keys, .bin), they have to be user-accessible for
-//  backups - I reckon we save that in My Documents\Monero Accounts\ on
-//  Windows, ~/Monero Accounts/ on nix / osx
+//  backups - I reckon we save that in My Documents\Masari Accounts\ on
+//  Windows, ~/Masari Accounts/ on nix / osx
     bool isWindows = false;
     bool isIOS = false;
     bool isMac = false;
 #ifdef Q_OS_WIN
     isWindows = true;
-    QStringList moneroAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
+    QStringList masariAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
 #elif defined(Q_OS_IOS)
     isIOS = true;
-    QStringList moneroAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
+    QStringList masariAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
 #elif defined(Q_OS_UNIX)
-    QStringList moneroAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    QStringList masariAccountsRootDir = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
 #endif
 #ifdef Q_OS_MAC
     isMac = true;
@@ -184,9 +184,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("isWindows", isWindows);
     engine.rootContext()->setContextProperty("isIOS", isIOS);
 
-    if (!moneroAccountsRootDir.empty()) {
-        QString moneroAccountsDir = moneroAccountsRootDir.at(0) + "/Monero/wallets";
-        engine.rootContext()->setContextProperty("moneroAccountsDir", moneroAccountsDir);
+    if (!masariAccountsRootDir.empty()) {
+        QString masariAccountsDir = masariAccountsRootDir.at(0) + "/Masari/wallets";
+        engine.rootContext()->setContextProperty("masariAccountsDir", masariAccountsDir);
     }
 
 
@@ -196,7 +196,7 @@ int main(int argc, char *argv[])
         accountName = qgetenv("USERNAME"); // Windows
     }
     if (accountName.isEmpty()) {
-        accountName = "My monero Account";
+        accountName = "My masari Account";
     }
 
     engine.rootContext()->setContextProperty("defaultAccountName", accountName);

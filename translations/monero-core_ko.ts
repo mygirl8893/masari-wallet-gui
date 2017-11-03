@@ -20,7 +20,7 @@
     </message>
     <message>
         <location filename="../pages/AddressBook.qml" line="93"/>
-        <source>4...</source>
+        <source>5...</source>
         <translation></translation>
     </message>
     <message>
@@ -117,7 +117,7 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Monero daemon in %1 seconds</source>
+        <source>Starting Masari daemon in %1 seconds</source>
         <translation>%1 초 내에 모네로 데몬 시작하기</translation>
     </message>
     <message>
@@ -145,8 +145,8 @@
     </message>
     <message>
         <location filename="../pages/Dashboard.qml" line="102"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</translation>
     </message>
 </context>
 <context>
@@ -430,7 +430,7 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <source>Mining with your computer helps strengthen the Masari network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Masari. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
         <translation>컴퓨터 마이닝은 모네로 네트워크를 강화합니다. 마이닝은 네트워크 공격을 더욱 어렵게 만들고 네트워크를 강화합니다. 마이닝은 약간의 모네로를 벌 수있는 작은 기회를 제공합니다. 컴퓨터가 블록 솔루션을 찾는 해시를 만듭니다. 블록을 찾으면 관련 보상을 받게됩니다. 행운을 빕니다!</translation>
     </message>
     <message>
@@ -688,8 +688,8 @@
     </message>
     <message>
         <location filename="../pages/Receive.qml" line="338"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Receive.qml" line="343"/>
@@ -908,7 +908,7 @@
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
-        <source>Embedded Monero version: </source>
+        <source>Embedded Masari version: </source>
         <translation>임베디드 모네로 버전:</translation>
     </message>
     <message>
@@ -1066,7 +1066,7 @@
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="419"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
         <translation type="unfinished">서명할 주소 &lt;font size=&apos;2&apos;&gt;  (선택 또는 붙여 넣기 &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;주소록&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
     </message>
     <message>
@@ -1238,8 +1238,8 @@
     <name>Transfer</name>
     <message>
         <location filename="../pages/Transfer.qml" line="44"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt; 데몬 시작&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt; 데몬 시작&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="66"/>
@@ -1283,8 +1283,8 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="237"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                      주소 &lt;font size=&apos;2&apos;&gt; (에 붙여 넣기 또는에서 선택 &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;주소록&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                      주소 &lt;font size=&apos;2&apos;&gt; (에 붙여 넣기 또는에서 선택 &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;주소록&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="255"/>
@@ -1449,7 +1449,7 @@ Fee: </source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="714"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
         <translation>연결된 데몬은 GUI와 호환되지 않습니다. 다른 데몬으로 업그레이드하거나 연결하세요.</translation>
     </message>
@@ -1574,12 +1574,12 @@ Please upgrade or connect to another daemon</source>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
+        <source>We’re almost there - let’s just configure some Masari preferences</source>
         <translation> 거의 다 왔습니다 - 선호하는 모네로 환경 설정을 구성 해 보세요.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
+        <source>Kickstart the Masari blockchain?</source>
         <translation>모네로 블록 체인을 시작하세요?</translation>
     </message>
     <message>
@@ -1594,7 +1594,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Masari instance. However, storing the full blockchain is beneficial to the security of the Masari network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
         <translation>디스크 절약 모드는 매우 적은 디스크 공간을 사용하지만 일반 모네로 인스턴스와 같은 양의 대역폭을 사용합니다. 그러나 전체 블록 체인을 저장하면 모네로 네트워크를 보호하는 데 도움이됩니다. 이 옵션은 디스크 공간이 제한적인 장치에 적합합니다.</translation>
     </message>
     <message>
@@ -1604,7 +1604,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <source>Mining secures the Masari network, and also pays a small reward for the work done. This option will let Masari mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
         <translation>마이닝은 모네로 네트워크를 보호하고 수행 한 작업에 대해 작은 보상을 지불합니다. 이 옵션은 당신의 컴퓨터가 전원에 연결되어 있고 게다가 유휴 상태 일 때 자동으로 모네로의 채굴을 할 수 있도록합니다. 당신이 작업을 다시 시작하면 채굴은 중지됩니다.</translation>
     </message>
 </context>
@@ -1628,7 +1628,7 @@ Please upgrade or connect to another daemon</source>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
+        <source>Masari development is solely supported by donations</source>
         <translation>모네로 개발은 전적으로 기부금으로 지원됩니다</translation>
     </message>
     <message>
@@ -1643,7 +1643,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Masari development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Masari development.</source>
         <translation>모든 거래에 대해 작은 수수료가 부과됩니다. 이 옵션은 수수료 이외에 수수료의 몇 퍼센트를 모네로의 개발 팀에 기부금으로 결제하는 것을 허용합니다. 예를 들어, 자동 기부율이 50 %이고 거래 수수료가 0.005 XMR이면 0.0025 XMR이 개발 팀에 대한 기부로 거래에 추가됩니다.</translation>
     </message>
     <message>
@@ -1653,7 +1653,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <source>Mining secures the Masari network, and also pays a small reward for the work done. This option will let Masari mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
         <translation>마이닝은 모네로 네트워크를 보호하고 수행 한 작업에 대해 작은 보상을 지불합니다. 이 옵션은 당신의 컴퓨터가 전원에 연결되어 있고 게다가 유휴 상태 일 때 자동으로 모네로의 채굴을 할 수 있도록합니다. 당신이 작업을 다시 시작하면 채굴은 중지됩니다.</translation>
     </message>
 </context>
@@ -1738,7 +1738,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE MONERO</source>
+        <source>USE MASARI</source>
         <translation>모네로를 사용</translation>
     </message>
     <message>
@@ -1753,7 +1753,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1</source>
         <translation>보기 전용 지갑이 생성되었습니다. 이것을 열려면 현재의 지갑을 닫고 &quot;파일 옵션에서 지갑을 열고&quot; 보기 전용 지갑을 선택하세요:
 %1</translation>
@@ -1834,7 +1834,7 @@ Please upgrade or connect to another daemon</source>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Monero!</source>
+        <source>Welcome to Masari!</source>
         <translation>모네로에 오신 것을 환영합니다!</translation>
     </message>
     <message>
@@ -1909,7 +1909,7 @@ Please upgrade or connect to another daemon</source>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Monero!</source>
+        <source>Welcome to Masari!</source>
         <translation>모네로에 오신 것을 환영합니다!</translation>
     </message>
     <message>
@@ -2040,7 +2040,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="734"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
+        <source>This address received %1 masari, with %2 confirmation(s).</source>
         <translation>이 주소로 % 1XMR을 받아, % 2 로 승인되었습니다.</translation>
     </message>
     <message>
@@ -2060,8 +2060,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1361"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
-        <translation>monero-wallet-gui의 새 버전을 사용할 수 있습니다: %1&lt;br&gt;%2</translation>
+        <source>New version of masari-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <translation>masari-wallet-gui의 새 버전을 사용할 수 있습니다: %1&lt;br&gt;%2</translation>
     </message>
     <message>
         <location filename="../main.qml" line="529"/>
@@ -2113,7 +2113,7 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="729"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
+        <source>This address received %1 masari, but the transaction is not yet mined</source>
         <translation>이 주소는 % 1XMR을 받았지만, 거래는 아직 채굴되지 않습니다</translation>
     </message>
     <message>
@@ -2143,7 +2143,7 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1024"/>
-        <source>Monero</source>
+        <source>Masari</source>
         <translation>모네로</translation>
     </message>
     <message>

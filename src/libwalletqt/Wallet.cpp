@@ -25,7 +25,7 @@ namespace {
     static const int WALLET_CONNECTION_STATUS_CACHE_TTL_SECONDS = 5;
 }
 
-class WalletListenerImpl : public  Monero::WalletListener
+class WalletListenerImpl : public  Masari::WalletListener
 {
 public:
     WalletListenerImpl(Wallet * w)
@@ -108,11 +108,11 @@ bool Wallet::testnet() const
 
 void Wallet::updateConnectionStatusAsync()
 {
-    QFuture<Monero::Wallet::ConnectionStatus> future = QtConcurrent::run(m_walletImpl, &Monero::Wallet::connected);
-    QFutureWatcher<Monero::Wallet::ConnectionStatus> *connectionWatcher = new QFutureWatcher<Monero::Wallet::ConnectionStatus>();
+    QFuture<Masari::Wallet::ConnectionStatus> future = QtConcurrent::run(m_walletImpl, &Masari::Wallet::connected);
+    QFutureWatcher<Masari::Wallet::ConnectionStatus> *connectionWatcher = new QFutureWatcher<Masari::Wallet::ConnectionStatus>();
 
-    connect(connectionWatcher, &QFutureWatcher<Monero::Wallet::ConnectionStatus>::finished, [=]() {
-        QFuture<Monero::Wallet::ConnectionStatus> future = connectionWatcher->future();
+    connect(connectionWatcher, &QFutureWatcher<Masari::Wallet::ConnectionStatus>::finished, [=]() {
+        QFuture<Masari::Wallet::ConnectionStatus> future = connectionWatcher->future();
         connectionWatcher->deleteLater();
         ConnectionStatus newStatus = static_cast<ConnectionStatus>(future.result());
         if (newStatus != m_connectionStatus || !m_initialized) {
@@ -320,77 +320,52 @@ void Wallet::pauseRefresh() const
 }
 
 PendingTransaction *Wallet::createTransaction(const QString &dst_addr, const QString &payment_id,
-                                              quint64 amount, quint32 mixin_count,
+                                              quint64 amount,
                                               PendingTransaction::Priority priority)
 {
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
-                dst_addr.toStdString(), payment_id.toStdString(), amount, mixin_count,
-                static_cast<Monero::PendingTransaction::Priority>(priority));
+    Masari::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
+                dst_addr.toStdString(), payment_id.toStdString(), amount,
+                static_cast<Masari::PendingTransaction::Priority>(priority));
     PendingTransaction * result = new PendingTransaction(ptImpl,0);
     return result;
 }
 
 void Wallet::createTransactionAsync(const QString &dst_addr, const QString &payment_id,
-                               quint64 amount, quint32 mixin_count,
-                               PendingTransaction::Priority priority)
+                               quint64 amount, PendingTransaction::Priority priority)
 {
     QFuture<PendingTransaction*> future = QtConcurrent::run(this, &Wallet::createTransaction,
-                                  dst_addr, payment_id,amount, mixin_count, priority);
+                                  dst_addr, payment_id,amount, priority);
     QFutureWatcher<PendingTransaction*> * watcher = new QFutureWatcher<PendingTransaction*>();
 
-    connect(watcher, &QFutureWatcher<PendingTransaction*>::finished,
-            this, [this, watcher,dst_addr,payment_id,mixin_count]() {
+    connect(watcher, &QFutureWatcher<PendingTransaction*>::finished, this, [this, watcher,dst_addr,payment_id]() {
         QFuture<PendingTransaction*> future = watcher->future();
         watcher->deleteLater();
-        emit transactionCreated(future.result(),dst_addr,payment_id,mixin_count);
+        emit transactionCreated(future.result(),dst_addr,payment_id);
     });
     watcher->setFuture(future);
 }
 
 PendingTransaction *Wallet::createTransactionAll(const QString &dst_addr, const QString &payment_id,
-                                                 quint32 mixin_count, PendingTransaction::Priority priority)
+                                                 PendingTransaction::Priority priority)
 {
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
-                dst_addr.toStdString(), payment_id.toStdString(), Monero::optional<uint64_t>(), mixin_count,
-                static_cast<Monero::PendingTransaction::Priority>(priority));
+    Masari::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
+                dst_addr.toStdString(), payment_id.toStdString(), Masari::optional<uint64_t>(),
+                static_cast<Masari::PendingTransaction::Priority>(priority));
     PendingTransaction * result = new PendingTransaction(ptImpl, this);
     return result;
 }
 
-void Wallet::createTransactionAllAsync(const QString &dst_addr, const QString &payment_id,
-                               quint32 mixin_count,
-                               PendingTransaction::Priority priority)
+void Wallet::createTransactionAllAsync(const QString &dst_addr, const QString &payment_id, PendingTransaction::Priority priority)
 {
     QFuture<PendingTransaction*> future = QtConcurrent::run(this, &Wallet::createTransactionAll,
-                                  dst_addr, payment_id, mixin_count, priority);
+                                  dst_addr, payment_id, priority);
     QFutureWatcher<PendingTransaction*> * watcher = new QFutureWatcher<PendingTransaction*>();
 
     connect(watcher, &QFutureWatcher<PendingTransaction*>::finished,
-            this, [this, watcher,dst_addr,payment_id,mixin_count]() {
+            this, [this, watcher,dst_addr,payment_id]() {
         QFuture<PendingTransaction*> future = watcher->future();
         watcher->deleteLater();
-        emit transactionCreated(future.result(),dst_addr,payment_id,mixin_count);
-    });
-    watcher->setFuture(future);
-}
-
-PendingTransaction *Wallet::createSweepUnmixableTransaction()
-{
-    Monero::PendingTransaction * ptImpl = m_walletImpl->createSweepUnmixableTransaction();
-    PendingTransaction * result = new PendingTransaction(ptImpl, this);
-    return result;
-}
-
-void Wallet::createSweepUnmixableTransactionAsync()
-{
-    QFuture<PendingTransaction*> future = QtConcurrent::run(this, &Wallet::createSweepUnmixableTransaction);
-    QFutureWatcher<PendingTransaction*> * watcher = new QFutureWatcher<PendingTransaction*>();
-
-    connect(watcher, &QFutureWatcher<PendingTransaction*>::finished,
-            this, [this, watcher]() {
-        QFuture<PendingTransaction*> future = watcher->future();
-        watcher->deleteLater();
-        emit transactionCreated(future.result(),"","",0);
+        emit transactionCreated(future.result(),dst_addr,payment_id);
     });
     watcher->setFuture(future);
 }
@@ -398,7 +373,7 @@ void Wallet::createSweepUnmixableTransactionAsync()
 UnsignedTransaction * Wallet::loadTxFile(const QString &fileName)
 {
     qDebug() << "Trying to sign " << fileName;
-    Monero::UnsignedTransaction * ptImpl = m_walletImpl->loadUnsignedTx(fileName.toStdString());
+    Masari::UnsignedTransaction * ptImpl = m_walletImpl->loadUnsignedTx(fileName.toStdString());
     UnsignedTransaction * result = new UnsignedTransaction(ptImpl, m_walletImpl, this);
     return result;
 }
@@ -460,7 +435,7 @@ AddressBookModel *Wallet::addressBookModel() const
 
 QString Wallet::generatePaymentId() const
 {
-    return QString::fromStdString(Monero::Wallet::genPaymentId());
+    return QString::fromStdString(Masari::Wallet::genPaymentId());
 }
 
 QString Wallet::integratedAddress(const QString &paymentId) const
@@ -601,15 +576,15 @@ bool Wallet::useForkRules(quint8 required_version, quint64 earlyBlocks) const
 
 QString Wallet::getDaemonLogPath() const
 {
-    return QString::fromStdString(m_walletImpl->getDefaultDataDir()) + "/bitmonero.log";
+    return QString::fromStdString(m_walletImpl->getDefaultDataDir()) + "/masari.log";
 }
 
 QString Wallet::getWalletLogPath() const
 {
-    return QCoreApplication::applicationDirPath() + "/monero-wallet-gui.log";
+    return QCoreApplication::applicationDirPath() + "/masari-wallet-gui.log";
 }
 
-Wallet::Wallet(Monero::Wallet *w, QObject *parent)
+Wallet::Wallet(Masari::Wallet *w, QObject *parent)
     : QObject(parent)
     , m_walletImpl(w)
     , m_history(nullptr)
@@ -642,7 +617,7 @@ Wallet::~Wallet()
 
     delete m_history;
     m_history = NULL;
-    //Monero::WalletManagerFactory::getWalletManager()->closeWallet(m_walletImpl);
+    //Masari::WalletManagerFactory::getWalletManager()->closeWallet(m_walletImpl);
     delete m_walletImpl;
     m_walletImpl = NULL;
     qDebug("m_walletImpl deleted");

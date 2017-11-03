@@ -1,7 +1,7 @@
 import QtQuick 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
-import moneroComponents.Wallet 1.0
+import masariComponents.Wallet 1.0
 
 
 // BasicPanel header
@@ -21,7 +21,7 @@ Rectangle {
         anchors.verticalCenterOffset: -5
         anchors.left: parent.left
         anchors.leftMargin: appWindow.persistentSettings.customDecorations ? 20 : 40
-        source: "../images/moneroLogo2.png"
+        source: "../images/masariLogo2.png"
     }
 
     Image {
@@ -31,7 +31,7 @@ Rectangle {
 //                anchors.verticalCenterOffset: -5
         anchors.left: parent.left
         anchors.leftMargin: appWindow.persistentSettings.customDecorations ? 20 : 40
-        source: "../images/moneroIcon.png"
+        source: "../images/masariIcon.png"
     }
 
     Grid {

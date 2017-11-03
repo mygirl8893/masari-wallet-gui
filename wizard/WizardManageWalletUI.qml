@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.2
-import moneroComponents.TranslationManager 1.0
+import masariComponents.TranslationManager 1.0
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.2
 import "../components"
@@ -150,10 +150,10 @@ ColumnLayout {
         StandardButton {
             id: recoverFromSeedButton
             text: qsTr("Restore from seed") + translationManager.emptyString
-            shadowReleasedColor: "#FF4304"
+            shadowReleasedColor: "#85A865"
             shadowPressedColor: "#B32D00"
-            releasedColor: "#FF6C3C"
-            pressedColor: "#FF4304"
+            releasedColor: "#85BB65"
+            pressedColor: "#85A865"
             enabled: recoverFromKeys.visible
             onClicked: {
                 recoverFromSeedMode = true;
@@ -164,10 +164,10 @@ ColumnLayout {
         StandardButton {
             id: recoverFromKeysButton
             text: qsTr("Restore from keys") + translationManager.emptyString
-            shadowReleasedColor: "#FF4304"
+            shadowReleasedColor: "#85A865"
             shadowPressedColor: "#B32D00"
-            releasedColor: "#FF6C3C"
-            pressedColor: "#FF4304"
+            releasedColor: "#85BB65"
+            pressedColor: "#85A865"
             enabled: recoverFromSeed.visible
             onClicked: {
                 recoverFromSeedMode = false;
@@ -250,7 +250,7 @@ ColumnLayout {
             Layout.maximumWidth: 600
             Layout.minimumWidth: 200
             id: fileUrlInput
-            text: moneroAccountsDir + "/"
+            text: masariAccountsDir + "/"
 
             // workaround for the bug "filechooser only opens once"
             MouseArea {

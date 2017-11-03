@@ -28,23 +28,11 @@ quint64 UnsignedTransaction::fee(int index) const
     return arr[index];
 }
 
-quint64 UnsignedTransaction::mixin(int index) const
-{
-    std::vector<uint64_t> arr = m_pimpl->mixin();
-    if(index > arr.size() - 1)
-        return 0;
-    return arr[index];
-}
-
 quint64 UnsignedTransaction::txCount() const
 {
     return m_pimpl->txCount();
 }
 
-quint64 UnsignedTransaction::minMixinCount() const
-{
-    return m_pimpl->minMixinCount();
-}
 
 QString UnsignedTransaction::confirmationMessage() const
 {
@@ -80,7 +68,7 @@ void UnsignedTransaction::setFilename(const QString &fileName)
     m_fileName = fileName;
 }
 
-UnsignedTransaction::UnsignedTransaction(Monero::UnsignedTransaction *pt, Monero::Wallet *walletImpl, QObject *parent)
+UnsignedTransaction::UnsignedTransaction(Masari::UnsignedTransaction *pt, Masari::Wallet *walletImpl, QObject *parent)
     : QObject(parent), m_pimpl(pt), m_walletImpl(walletImpl)
 {
 

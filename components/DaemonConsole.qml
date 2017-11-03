@@ -33,7 +33,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
+import "../components" as MasariComponents
 
 Window {
     id: root
@@ -106,14 +106,14 @@ Window {
             spacing: 60
             Layout.alignment: Qt.AlignHCenter
 
-            MoneroComponents.StandardButton {
+            MasariComponents.StandardButton {
                 id: okButton
                 width: 120
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Close") + translationManager.emptyString
                 onClicked: {
                     root.close()
@@ -122,7 +122,7 @@ Window {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            MasariComponents.LineEdit {
                 id: sendCommandText
                 width: 300
                 placeholderText: qsTr("command + enter (e.g help)") + translationManager.emptyString
@@ -134,14 +134,14 @@ Window {
             }
 
             // Status button
-//            MoneroComponents.StandardButton {
+//            MasariComponents.StandardButton {
 //                id: sendCommandButton
 //                enabled: sendCommandText.text.length > 0
 //                fontSize: 14
-//                shadowReleasedColor: "#FF4304"
+//                shadowReleasedColor: "#85A865"
 //                shadowPressedColor: "#B32D00"
-//                releasedColor: "#FF6C3C"
-//                pressedColor: "#FF4304"
+//                releasedColor: "#85BB65"
+//                pressedColor: "#85A865"
 //                text: qsTr("Send command")
 //                onClicked: {
 //                    daemonManager.sendCommand(sendCommandText.text,currentWallet.testnet);

@@ -6,11 +6,11 @@
 #include <QMutex>
 #include <QtConcurrent/QtConcurrent>
 
-#include "wallet/wallet2_api.h" // we need to have an access to the Monero::Wallet::Status enum here;
+#include "wallet/wallet2_api.h" // we need to have an access to the Masari::Wallet::Status enum here;
 #include "PendingTransaction.h" // we need to have an access to the PendingTransaction::Priority enum here;
 #include "UnsignedTransaction.h"
 
-namespace Monero {
+namespace Masari {
     class Wallet; // forward declaration
 }
 
@@ -53,17 +53,17 @@ public:
 
 
     enum Status {
-        Status_Ok       = Monero::Wallet::Status_Ok,
-        Status_Error    = Monero::Wallet::Status_Error,
-        Status_Critical = Monero::Wallet::Status_Critical
+        Status_Ok       = Masari::Wallet::Status_Ok,
+        Status_Error    = Masari::Wallet::Status_Error,
+        Status_Critical = Masari::Wallet::Status_Critical
     };
 
     Q_ENUM(Status)
 
     enum ConnectionStatus {
-        ConnectionStatus_Connected       = Monero::Wallet::ConnectionStatus_Connected,
-        ConnectionStatus_Disconnected    = Monero::Wallet::ConnectionStatus_Disconnected,
-        ConnectionStatus_WrongVersion    = Monero::Wallet::ConnectionStatus_WrongVersion
+        ConnectionStatus_Connected       = Masari::Wallet::ConnectionStatus_Connected,
+        ConnectionStatus_Disconnected    = Masari::Wallet::ConnectionStatus_Disconnected,
+        ConnectionStatus_WrongVersion    = Masari::Wallet::ConnectionStatus_WrongVersion
     };
 
     Q_ENUM(ConnectionStatus)
@@ -162,27 +162,17 @@ public:
 
     //! creates transaction
     Q_INVOKABLE PendingTransaction * createTransaction(const QString &dst_addr, const QString &payment_id,
-                                                       quint64 amount, quint32 mixin_count,
-                                                       PendingTransaction::Priority priority);
+                                                       quint64 amount, PendingTransaction::Priority priority);
 
     //! creates async transaction
     Q_INVOKABLE void createTransactionAsync(const QString &dst_addr, const QString &payment_id,
-                                            quint64 amount, quint32 mixin_count,
-                                            PendingTransaction::Priority priority);
+                                            quint64 amount, PendingTransaction::Priority priority);
 
     //! creates transaction with all outputs
-    Q_INVOKABLE PendingTransaction * createTransactionAll(const QString &dst_addr, const QString &payment_id,
-                                                       quint32 mixin_count, PendingTransaction::Priority priority);
+    Q_INVOKABLE PendingTransaction * createTransactionAll(const QString &dst_addr, const QString &payment_id, PendingTransaction::Priority priority);
 
     //! creates async transaction with all outputs
-    Q_INVOKABLE void createTransactionAllAsync(const QString &dst_addr, const QString &payment_id,
-                                               quint32 mixin_count, PendingTransaction::Priority priority);
-
-    //! creates sweep unmixable transaction
-    Q_INVOKABLE PendingTransaction * createSweepUnmixableTransaction();
-
-    //! creates async sweep unmixable transaction
-    Q_INVOKABLE void createSweepUnmixableTransactionAsync();
+    Q_INVOKABLE void createTransactionAllAsync(const QString &dst_addr, const QString &payment_id, PendingTransaction::Priority priority);
 
     //! Sign a transfer from file
     Q_INVOKABLE UnsignedTransaction * loadTxFile(const QString &fileName);
@@ -265,19 +255,19 @@ signals:
     void historyModelChanged() const;
 
     // emitted when transaction is created async
-    void transactionCreated(PendingTransaction * transaction, QString address, QString paymentId, quint32 mixinCount);
+    void transactionCreated(PendingTransaction * transaction, QString address, QString paymentId);
 
     void connectionStatusChanged(ConnectionStatus status) const;
 
 private:
     Wallet(QObject * parent = nullptr);
-    Wallet(Monero::Wallet *w, QObject * parent = 0);
+    Wallet(Masari::Wallet *w, QObject * parent = 0);
     ~Wallet();
 private:
     friend class WalletManager;
     friend class WalletListenerImpl;
     //! libwallet's
-    Monero::Wallet * m_walletImpl;
+    Masari::Wallet * m_walletImpl;
     // history lifetime managed by wallet;
     TransactionHistory * m_history;
     // Used for UI history view

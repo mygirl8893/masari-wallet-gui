@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -58,7 +58,7 @@ ColumnLayout {
     property var pages: paths[currentPath]
 
     signal wizardRestarted();
-    signal useMoneroClicked()
+    signal useMasariClicked()
     signal openWalletFromFileClicked()
 //    border.color: "#DBDBDB"
 //    border.width: 1
@@ -171,7 +171,7 @@ ColumnLayout {
 
     function walletPathValid(path){
         if(isIOS)
-            path = moneroAccountsDir + path;
+            path = masariAccountsDir + path;
         if (walletManager.walletExists(path)) {
             walletErrorDialog.text = qsTr("A wallet with same name already exists. Please change wallet name") + translationManager.emptyString;
             walletErrorDialog.open();
@@ -202,8 +202,8 @@ ColumnLayout {
         // Save wallet files in user specified location
         var new_wallet_filename = createWalletPath(settings.wallet_path,settings.account_name)
         if(isIOS) {
-            console.log("saving in ios: "+ moneroAccountsDir + new_wallet_filename)
-            settings.wallet.store(moneroAccountsDir + new_wallet_filename);
+            console.log("saving in ios: "+ masariAccountsDir + new_wallet_filename)
+            settings.wallet.store(masariAccountsDir + new_wallet_filename);
         } else {
             console.log("saving in wizard: "+ new_wallet_filename)
             settings.wallet.store(new_wallet_filename);
@@ -316,7 +316,7 @@ ColumnLayout {
 
         width: 50; height: 50
         radius: 25
-        color: prevArea.containsMouse ? "#FF4304" : "#FF6C3C"
+        color: prevArea.containsMouse ? "#85A865" : "#85BB65"
 
         Image {
             anchors.centerIn: parent
@@ -341,7 +341,7 @@ ColumnLayout {
         visible: currentPage > 1 && currentPage < pages.length - 1
         width: 50; height: 50
         radius: 25
-        color: enabled ? nextArea.containsMouse ? "#FF4304" : "#FF6C3C" : "#DBDBDB"
+        color: enabled ? nextArea.containsMouse ? "#85A865" : "#85BB65" : "#DBDBDB"
 
 
         Image {
@@ -363,15 +363,15 @@ ColumnLayout {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins:  (isMobile) ? 20 : 50
-        text: qsTr("USE MONERO") + translationManager.emptyString
-        shadowReleasedColor: "#FF4304"
+        text: qsTr("USE MASARI") + translationManager.emptyString
+        shadowReleasedColor: "#85A865"
         shadowPressedColor: "#B32D00"
-        releasedColor: "#FF6C3C"
-        pressedColor: "#FF4304"
+        releasedColor: "#85BB65"
+        pressedColor: "#85A865"
         visible: parent.paths[currentPath][currentPage] === finishPage
         onClicked: {
             wizard.applySettings();
-            wizard.useMoneroClicked();
+            wizard.useMasariClicked();
         }
     }
 
@@ -381,10 +381,10 @@ ColumnLayout {
        anchors.bottom: parent.bottom
        anchors.margins: (isMobile) ? 20 : 50
        text: qsTr("Create wallet") + translationManager.emptyString
-       shadowReleasedColor: "#FF4304"
+       shadowReleasedColor: "#85A865"
        shadowPressedColor: "#B32D00"
-       releasedColor: "#FF6C3C"
-       pressedColor: "#FF4304"
+       releasedColor: "#85BB65"
+       pressedColor: "#85A865"
        visible: currentPath === "create_view_only_wallet" &&  parent.paths[currentPath][currentPage] === passwordPage
        enabled: passwordPage.passwordsMatch
        onClicked: {
@@ -413,10 +413,10 @@ ColumnLayout {
        anchors.bottom: parent.bottom
        anchors.margins:  (isMobile) ? 20 : 50
        text: qsTr("Abort") + translationManager.emptyString
-       shadowReleasedColor: "#FF4304"
+       shadowReleasedColor: "#85A865"
        shadowPressedColor: "#B32D00"
-       releasedColor: "#FF6C3C"
-       pressedColor: "#FF4304"
+       releasedColor: "#85BB65"
+       pressedColor: "#85A865"
        visible: currentPath === "create_view_only_wallet" &&  parent.paths[currentPath][currentPage] === passwordPage
        onClicked: {
            wizard.restart();

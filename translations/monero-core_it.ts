@@ -20,8 +20,8 @@
     </message>
     <message>
         <location filename="../pages/AddressBook.qml" line="93"/>
-        <source>4...</source>
-        <translation>4...</translation>
+        <source>5...</source>
+        <translation>5...</translation>
     </message>
     <message>
         <location filename="../pages/AddressBook.qml" line="102"/>
@@ -117,7 +117,7 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Monero daemon in %1 seconds</source>
+        <source>Starting Masari daemon in %1 seconds</source>
         <translation>Il daemon partirà tra %1 secondi</translation>
     </message>
     <message>
@@ -145,8 +145,8 @@
     </message>
     <message>
         <location filename="../pages/Dashboard.qml" line="102"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                        Cerchi il livello di sicurezza e la lista degli indirizzi? vai qui: &lt;a href=&apos;#&apos;&gt;Invia&lt;/a&gt; tab</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                        Cerchi il livello di sicurezza e la lista degli indirizzi? vai qui: &lt;a href=&apos;#&apos;&gt;Invia&lt;/a&gt; tab</translation>
     </message>
 </context>
 <context>
@@ -430,8 +430,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>Minare con il tuo computer incrementa la resistenza del network. Più persone minano, più è difficile attaccare monero, e anche un singolo bit è importante.&lt;br&gt; &lt;br&gt;Minare ti da anche una piccola chance di guadagnare qualche Monero. Il tuo computer creerà &quot;hashes&quot; cercando di risolvere un blocco. Se ne trovi uno, riceverai la ricompensa associata al blocco. Buona fortuna!</translation>
+        <source>Mining with your computer helps strengthen the Masari network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Masari. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>Minare con il tuo computer incrementa la resistenza del network. Più persone minano, più è difficile attaccare masari, e anche un singolo bit è importante.&lt;br&gt; &lt;br&gt;Minare ti da anche una piccola chance di guadagnare qualche Masari. Il tuo computer creerà &quot;hashes&quot; cercando di risolvere un blocco. Se ne trovi uno, riceverai la ricompensa associata al blocco. Buona fortuna!</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -718,7 +718,7 @@
     </message>
     <message>
         <location filename="../pages/Receive.qml" line="338"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -944,8 +944,8 @@
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
-        <source>Embedded Monero version: </source>
-        <translation>Versione Monero inserita:</translation>
+        <source>Embedded Masari version: </source>
+        <translation>Versione Masari inserita:</translation>
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="509"/>
@@ -1100,7 +1100,7 @@
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="419"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1274,7 +1274,7 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
         <translation>Il daemon connesso non è compatibile con l&apos;interfaccia grafica. Aggiorna o connetti a un altro daemon</translation>
     </message>
@@ -1300,8 +1300,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="44"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="175"/>
@@ -1345,7 +1345,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="237"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #FF6C3C; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #85BB65; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1566,13 +1566,13 @@ Ringsize: </source>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
+        <source>We’re almost there - let’s just configure some Masari preferences</source>
         <translation>Hai quasi finito - mancano solo altre piccole configurazioni</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>Vuoi avviare la blockchain di Monero?</translation>
+        <source>Kickstart the Masari blockchain?</source>
+        <translation>Vuoi avviare la blockchain di Masari?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1586,8 +1586,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>La modalità conservazione del disco usa meno spazio, ma la stessa quantità di banda come una normale instanza Monero. In ogni caso, conservare la blockchain completa è utile alla sicurezza della rete di Monero. Se utilizzi una periferica con spazio sul disco limitato questa opzione fa al caso tuo.</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Masari instance. However, storing the full blockchain is beneficial to the security of the Masari network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>La modalità conservazione del disco usa meno spazio, ma la stessa quantità di banda come una normale instanza Masari. In ogni caso, conservare la blockchain completa è utile alla sicurezza della rete di Masari. Se utilizzi una periferica con spazio sul disco limitato questa opzione fa al caso tuo.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1596,8 +1596,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Il mining rende sicura la rete di Monero e ricompensa per il lavoro fatto. Questa opzione permetterà a Monero di minare quando il tuo computer è inattivo e collegato alla corrente. Smette di minare quando riprendi a lavorare.</translation>
+        <source>Mining secures the Masari network, and also pays a small reward for the work done. This option will let Masari mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Il mining rende sicura la rete di Masari e ricompensa per il lavoro fatto. Questa opzione permetterà a Masari di minare quando il tuo computer è inattivo e collegato alla corrente. Smette di minare quando riprendi a lavorare.</translation>
     </message>
 </context>
 <context>
@@ -1620,8 +1620,8 @@ Ringsize: </source>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Lo sviluppo di Monero è supportato solamente dalle donazioni</translation>
+        <source>Masari development is solely supported by donations</source>
+        <translation>Lo sviluppo di Masari è supportato solamente dalle donazioni</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1635,8 +1635,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>Per ogni transazione si paga una piccola commissione. Questa opzione ti permette di aggiungere un importo addizionale per supportare lo sviluppo di Monero. Per esempio, con una autodonazione del 50% si paga 0.005 XMR di commissioni e altri 0.0025 per il supporto allo sviluppo di Monero.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Masari development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Masari development.</source>
+        <translation>Per ogni transazione si paga una piccola commissione. Questa opzione ti permette di aggiungere un importo addizionale per supportare lo sviluppo di Masari. Per esempio, con una autodonazione del 50% si paga 0.005 XMR di commissioni e altri 0.0025 per il supporto allo sviluppo di Masari.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1645,8 +1645,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Il mining rende sicura la rete di Monero e ricompensa per il lavoro fatto. Questa opzione permetterà a Monero di minare quando il tuo computer è inattivo e collegato alla corrente. Smette di minare quando riprendi a lavorare.</translation>
+        <source>Mining secures the Masari network, and also pays a small reward for the work done. This option will let Masari mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Il mining rende sicura la rete di Masari e ricompensa per il lavoro fatto. Questa opzione permetterà a Masari di minare quando il tuo computer è inattivo e collegato alla corrente. Smette di minare quando riprendi a lavorare.</translation>
     </message>
 </context>
 <context>
@@ -1730,7 +1730,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE MONERO</source>
+        <source>USE MASARI</source>
         <translation>USA MONERO</translation>
     </message>
     <message>
@@ -1745,9 +1745,9 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1</source>
-        <translation type="unfinished">Il portafoglio solo-vista è stato creato. Puoi aprirlo chiudendo il portafoglio corrente, cliccando su &quot;Apri portafoglio dall&apos;opzione file&quot; e selezionando il portafoglio solo-vista in: 
+        <translation type="unfinished">Il portafoglio solo-vista è stato creato. Puoi aprirlo chiudendo il portafoglio corrente, cliccando su &quot;Apri portafoglio dall&apos;opzione file&quot; e selezionando il portafoglio solo-vista in:
         %1</translation>
     </message>
     <message>
@@ -1826,8 +1826,8 @@ Ringsize: </source>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Monero!</source>
-        <translation>Benvenuto in Monero!</translation>
+        <source>Welcome to Masari!</source>
+        <translation>Benvenuto in Masari!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1900,8 +1900,8 @@ Ringsize: </source>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Monero!</source>
-        <translation>Benvenuto in Monero!</translation>
+        <source>Welcome to Masari!</source>
+        <translation>Benvenuto in Masari!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>
@@ -2030,8 +2030,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>Questo indirizzo ha ricevuto %1 monero con %2 conferma/e.</translation>
+        <source>This address received %1 masari, with %2 confirmation(s).</source>
+        <translation>Questo indirizzo ha ricevuto %1 masari con %2 conferma/e.</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1317"/>
@@ -2050,7 +2050,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <source>New version of masari-wallet-gui is available: %1&lt;br&gt;%2</source>
         <translation>Una nuova versione dell&apos;interfaccia grafica è disponibile: %1&lt;br&gt;%2</translation>
     </message>
     <message>
@@ -2114,8 +2114,8 @@ Fee: </source>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>Questo indirizzo ha ricevuto %1 monero, ma la transazione non è ancora stata minata</translation>
+        <source>This address received %1 masari, but the transaction is not yet mined</source>
+        <translation>Questo indirizzo ha ricevuto %1 masari, ma la transazione non è ancora stata minata</translation>
     </message>
     <message>
         <location filename="../main.qml" line="732"/>
@@ -2134,8 +2134,8 @@ Fee: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Masari</source>
+        <translation>Masari</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1065"/>

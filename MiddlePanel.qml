@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,7 +33,7 @@ import QtQuick 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
+import masariComponents.Wallet 1.0
 
 import "./pages"
 
@@ -60,8 +60,7 @@ Rectangle {
     property AddressBook addressBookView: AddressBook { }
 
 
-    signal paymentClicked(string address, string paymentId, string amount, int mixinCount, int priority, string description)
-    signal sweepUnmixableClicked()
+    signal paymentClicked(string address, string paymentId, string amount, int priority, string description)
     signal generatePaymentIdInvoked()
     signal checkPaymentClicked(string address, string txid, string txkey);
 
@@ -171,7 +170,7 @@ Rectangle {
 
         Rectangle { height: 4; width: parent.width / 5; color: "#FFE00A" }
         Rectangle { height: 4; width: parent.width / 5; color: "#6B0072" }
-        Rectangle { height: 4; width: parent.width / 5; color: "#FF6C3C" }
+        Rectangle { height: 4; width: parent.width / 5; color: "#85BB65" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FFD781" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FF4F41" }
     }
@@ -256,11 +255,7 @@ Rectangle {
         target: transferView
         onPaymentClicked : {
             console.log("MiddlePanel: paymentClicked")
-            paymentClicked(address, paymentId, amount, mixinCount, priority, description)
-        }
-        onSweepUnmixableClicked : {
-            console.log("MiddlePanel: sweepUnmixableClicked")
-            sweepUnmixableClicked()
+            paymentClicked(address, paymentId, amount, priority, description)
         }
     }
 }

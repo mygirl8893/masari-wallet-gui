@@ -33,7 +33,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
+import "../components" as MasariComponents
 
 Window {
     id: root
@@ -145,14 +145,14 @@ Window {
             spacing: 60
             Layout.alignment: Qt.AlignHCenter
             
-            MoneroComponents.StandardButton {
+            MasariComponents.StandardButton {
                 id: cancelButton
                 width: 120
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Cancel") + translationManager.emptyString
                 KeyNavigation.tab: passwordInput
                 onClicked: {
@@ -160,14 +160,14 @@ Window {
                     root.rejected()
                 }
             }
-            MoneroComponents.StandardButton {
+            MasariComponents.StandardButton {
                 id: okButton
                 width: 120
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Ok")
                 KeyNavigation.tab: cancelButton
                 onClicked: {

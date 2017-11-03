@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.0
-import moneroComponents.Wallet 1.0
+import masariComponents.Wallet 1.0
 
 Item {
     id: item
@@ -78,7 +78,7 @@ Item {
             property int maxWidth: parent.width - 4
             width: (maxWidth * fillLevel) / 100
             color: {
-               if(item.fillLevel < 99 ) return "#FF6C3C"
+               if(item.fillLevel < 99 ) return "#85BB65"
                //if(item.fillLevel < 99) return "#FFE00A"
                 return "#36B25C"
             }

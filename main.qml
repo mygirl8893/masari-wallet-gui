@@ -33,8 +33,8 @@ import QtQuick.Controls.Styles 1.1
 import QtQuick.Dialogs 1.2
 import Qt.labs.settings 1.0
 
-import moneroComponents.Wallet 1.0
-import moneroComponents.PendingTransaction 1.0
+import masariComponents.Wallet 1.0
+import masariComponents.PendingTransaction 1.0
 
 
 import "components"
@@ -42,7 +42,7 @@ import "wizard"
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero"
+    title: "Masari"
 
     property var currentItem
     property bool whatIsEnable: false
@@ -212,7 +212,7 @@ ApplicationWindow {
         }  else {
             var wallet_path = walletPath();
             if(isIOS)
-                wallet_path = moneroAccountsDir + wallet_path;
+                wallet_path = masariAccountsDir + wallet_path;
             // console.log("opening wallet at: ", wallet_path, "with password: ", appWindow.password);
             console.log("opening wallet at: ", wallet_path, ", testnet: ", persistentSettings.testnet);
             walletManager.openWalletAsync(wallet_path, appWindow.password,
@@ -233,7 +233,6 @@ ApplicationWindow {
             currentWallet.transactionCreated.disconnect(onTransactionCreated)
             currentWallet.connectionStatusChanged.disconnect(onWalletConnectionStatusChanged)
             middlePanel.paymentClicked.disconnect(handlePayment);
-            middlePanel.sweepUnmixableClicked.disconnect(handleSweepUnmixable);
             middlePanel.checkPaymentClicked.disconnect(handleCheckPayment);
         }
         currentWallet = undefined;
@@ -267,7 +266,6 @@ ApplicationWindow {
         currentWallet.transactionCreated.connect(onTransactionCreated)
         currentWallet.connectionStatusChanged.connect(onWalletConnectionStatusChanged)
         middlePanel.paymentClicked.connect(handlePayment);
-        middlePanel.sweepUnmixableClicked.connect(handleSweepUnmixable);
         middlePanel.checkPaymentClicked.connect(handleCheckPayment);
 
         console.log("initializing with daemon address: ", persistentSettings.daemon_address)
@@ -442,7 +440,7 @@ ApplicationWindow {
         currentWallet.startRefresh();
         daemonRunning = false;
         informationPopup.title = qsTr("Daemon failed to start") + translationManager.emptyString;
-        informationPopup.text  = qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "monerod.exe" : "monerod")
+        informationPopup.text  = qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "masarid.exe" : "masarid")
         informationPopup.icon  = StandardIcon.Critical
         informationPopup.onCloseCallback = null
         informationPopup.open();
@@ -480,14 +478,14 @@ ApplicationWindow {
     function walletsFound() {
         if (persistentSettings.wallet_path.length > 0) {
             if(isIOS)
-                return walletManager.walletExists(moneroAccountsDir + persistentSettings.wallet_path);
+                return walletManager.walletExists(masariAccountsDir + persistentSettings.wallet_path);
             else
                 return walletManager.walletExists(persistentSettings.wallet_path);
         }
         return false;
     }
 
-    function onTransactionCreated(pendingTransaction,address,paymentId,mixinCount){
+    function onTransactionCreated(pendingTransaction,address,paymentId){
         console.log("Transaction created");
         hideProcessingSplash();
         transaction = pendingTransaction;
@@ -525,7 +523,7 @@ ApplicationWindow {
                         + (paymentId === "" ? "" : (qsTr("\nPayment ID: ") + paymentId))
                         + qsTr("\n\nAmount: ") + walletManager.displayAmount(transaction.amount)
                         + qsTr("\nFee: ") + walletManager.displayAmount(transaction.fee)
-                        + qsTr("\n\nRingsize: ") + (mixinCount + 1)
+                        + qsTr("\n\nRingsize: 13")
                         + qsTr("\n\Number of transactions: ") + transaction.txCount
                         + (transactionDescription === "" ? "" : (qsTr("\n\nDescription: ") + transactionDescription))
                         + translationManager.emptyString
@@ -536,12 +534,11 @@ ApplicationWindow {
 
 
     // called on "transfer"
-    function handlePayment(address, paymentId, amount, mixinCount, priority, description, createFile) {
+    function handlePayment(address, paymentId, amount, priority, description, createFile) {
         console.log("Creating transaction: ")
         console.log("\taddress: ", address,
                     ", payment_id: ", paymentId,
                     ", amount: ", amount,
-                    ", mixins: ", mixinCount,
                     ", priority: ", priority,
                     ", description: ", description);
 
@@ -581,16 +578,16 @@ ApplicationWindow {
         }
 
         if (amount === "(all)")
-            currentWallet.createTransactionAllAsync(address, paymentId, mixinCount, priority);
+            currentWallet.createTransactionAllAsync(address, paymentId, priority);
         else
-            currentWallet.createTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
+            currentWallet.createTransactionAsync(address, paymentId, amountxmr, priority);
     }
 
     //Choose where to save transaction
     FileDialog {
         id: saveTxDialog
         title: "Please choose a location"
-        folder: "file://" +moneroAccountsDir
+        folder: "file://" +masariAccountsDir
         selectExisting: false;
 
         onAccepted: {
@@ -603,45 +600,6 @@ ApplicationWindow {
 
     }
 
-
-    function handleSweepUnmixable() {
-        console.log("Creating transaction: ")
-
-        transaction = currentWallet.createSweepUnmixableTransaction();
-        if (transaction.status !== PendingTransaction.Status_Ok) {
-            console.error("Can't create transaction: ", transaction.errorString);
-            informationPopup.title = qsTr("Error") + translationManager.emptyString;
-            informationPopup.text  = qsTr("Can't create transaction: ") + transaction.errorString
-            informationPopup.icon  = StandardIcon.Critical
-            informationPopup.onCloseCallback = null
-            informationPopup.open();
-            // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
-
-        } else if (transaction.txCount == 0) {
-            informationPopup.title = qsTr("Error") + translationManager.emptyString
-            informationPopup.text  = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
-            informationPopup.icon = StandardIcon.Information
-            informationPopup.onCloseCallback = null
-            informationPopup.open()
-            // deleting transaction object, we don't want memleaks
-            currentWallet.disposeTransaction(transaction);
-        } else {
-            console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
-                    + ", fee: " + walletManager.displayAmount(transaction.fee));
-
-            // here we show confirmation popup;
-
-            transactionConfirmationPopup.title = qsTr("Confirmation") + translationManager.emptyString
-            transactionConfirmationPopup.text  = qsTr("Please confirm transaction:\n")
-                        + qsTr("\n\nAmount: ") + walletManager.displayAmount(transaction.amount)
-                        + qsTr("\nFee: ") + walletManager.displayAmount(transaction.fee)
-                        + translationManager.emptyString
-            transactionConfirmationPopup.icon = StandardIcon.Question
-            transactionConfirmationPopup.open()
-            // committing transaction
-        }
-    }
 
     // called after user confirms transaction
     function handleTransactionConfirmed(fileName) {
@@ -726,12 +684,12 @@ ApplicationWindow {
             if (received > 0) {
                 received = received / 1e12
                 if (height == 0) {
-                    informationPopup.text = qsTr("This address received %1 monero, but the transaction is not yet mined").arg(received);
+                    informationPopup.text = qsTr("This address received %1 masari, but the transaction is not yet mined").arg(received);
                 }
                 else {
                     var dCurrentBlock = currentWallet.daemonBlockChainHeight();
                     var confirmations = dCurrentBlock - height
-                    informationPopup.text = qsTr("This address received %1 monero, with %2 confirmation(s).").arg(received).arg(confirmations);
+                    informationPopup.text = qsTr("This address received %1 masari, with %2 confirmation(s).").arg(received).arg(confirmations);
                 }
             }
             else {
@@ -880,7 +838,7 @@ ApplicationWindow {
         property bool   allow_background_mining : false
         property bool   miningIgnoreBattery : true
         property bool   testnet: false
-        property string daemon_address: "localhost:18081"
+        property string daemon_address: "localhost:38081"
         property string payment_id
         property int    restore_height : 0
         property bool   is_recovering : false
@@ -941,7 +899,7 @@ ApplicationWindow {
     FileDialog {
         id: fileDialog
         title: "Please choose a file"
-        folder: "file://" +moneroAccountsDir
+        folder: "file://" +masariAccountsDir
         nameFilters: [ "Wallet files (*.keys)"]
 
         onAccepted: {
@@ -1021,7 +979,7 @@ ApplicationWindow {
 //                PropertyChanges { target: frameArea; blocked: true }
                 PropertyChanges { target: titleBar; visible: true }
 //                PropertyChanges { target: titleBar; y: 0 }
-                PropertyChanges { target: titleBar; title: qsTr("Monero") + translationManager.emptyString }
+                PropertyChanges { target: titleBar; title: qsTr("Masari") + translationManager.emptyString }
             }
         ]
 
@@ -1187,7 +1145,7 @@ ApplicationWindow {
         WizardMain {
             id: wizard
             anchors.fill: parent
-            onUseMoneroClicked: {
+            onUseMasariClicked: {
                 rootItem.state = "normal" // TODO: listen for this state change in appWindow;
                 appWindow.initialize();
             }
@@ -1285,7 +1243,7 @@ ApplicationWindow {
             property alias text: content.text
             width: content.width + 12
             height: content.height + 17
-            color: "#FF6C3C"
+            color: "#85BB65"
             //radius: 3
             visible:false;
 
@@ -1358,7 +1316,7 @@ ApplicationWindow {
           var hash = parts[1]
           var user_url = parts[2]
           var auto_url = parts[3]
-          var msg = qsTr("New version of monero-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
+          var msg = qsTr("New version of masari-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
           notifier.show(msg)
         }
         else {
@@ -1367,7 +1325,7 @@ ApplicationWindow {
     }
 
     function checkUpdates() {
-        walletManager.checkUpdatesAsync("monero-gui", "gui")
+        walletManager.checkUpdatesAsync("masari-gui", "gui")
     }
 
     Timer {

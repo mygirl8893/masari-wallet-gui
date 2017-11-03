@@ -27,8 +27,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.0
-import moneroComponents.Clipboard 1.0
-import moneroComponents.AddressBookModel 1.0
+import masariComponents.Clipboard 1.0
+import masariComponents.AddressBookModel 1.0
 
 
 ListView {
@@ -103,10 +103,10 @@ ListView {
             anchors.topMargin: parent.height/2 - this.height/2
             width: 80
             fontSize: 14
-            shadowReleasedColor: "#FF4304"
+            shadowReleasedColor: "#85A865"
             shadowPressedColor: "#B32D00"
-            releasedColor: "#FF6C3C"
-            pressedColor: "#FF4304"
+            releasedColor: "#85BB65"
+            pressedColor: "#85A865"
             text: qsTr("Details")
             onClicked: {
                 var tx_key = currentWallet.getTxKey(hash)
@@ -259,7 +259,7 @@ ListView {
                 //elide: Text.ElideRight
                 font.family: "Arial"
                 font.pixelSize: 13
-                color:  (confirmations < confirmationsRequired)? "#FF6C3C" : "#545454"
+                color:  (confirmations < confirmationsRequired)? "#85BB65" : "#545454"
                 text: {
                     if (!isPending)
                         if(confirmations < confirmationsRequired)

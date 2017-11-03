@@ -33,11 +33,11 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
 import "../components"
-import moneroComponents.Clipboard 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
-import moneroComponents.TransactionHistoryModel 1.0
+import masariComponents.Clipboard 1.0
+import masariComponents.Wallet 1.0
+import masariComponents.WalletManager 1.0
+import masariComponents.TransactionHistory 1.0
+import masariComponents.TransactionHistoryModel 1.0
 
 Rectangle {
 
@@ -72,7 +72,7 @@ Rectangle {
     }
 
     function makeQRCodeString() {
-        var s = "monero:"
+        var s = "masari:"
         var nfields = 0
         s += addressLine.text
         var amount = amountLine.text.trim()
@@ -247,10 +247,10 @@ Rectangle {
             StandardButton {
                 id: generatePaymentId
                 width: 80
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Generate") + translationManager.emptyString;
                 onClicked: updatePaymentId()
             }
@@ -259,10 +259,10 @@ Rectangle {
                 id: clearPaymentId
                 enabled: !!paymentIdLine.text
                 width: 80
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Clear") + translationManager.emptyString;
                 onClicked: updatePaymentId("")
             }
@@ -335,7 +335,7 @@ Rectangle {
                 id: trackingLabel
                 fontSize: 14
                 textFormat: Text.RichText
-                text: qsTr("<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style>\
+                text: qsTr("<style type='text/css'>a {text-decoration: none; color: #85BB65; font-size: 14px;}</style>\
                            Tracking <font size='2'> (</font><a href='#'>help</a><font size='2'>)</font>")
                            + translationManager.emptyString
                 width: mainLayout.labelWidth

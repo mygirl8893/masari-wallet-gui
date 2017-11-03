@@ -17,10 +17,10 @@ elif [ "$BUILD_TYPE" == "release-static" ]; then
     if [ "$platform" != "darwin" ]; then
 	    CONFIG="CONFIG+=release static";
     else
-        # OS X: build static libwallet but dynamic Qt. 
+        # OS X: build static libwallet but dynamic Qt.
         echo "OS X: Building Qt project without static flag"
         CONFIG="CONFIG+=release";
-    fi    
+    fi
     BIN_PATH=release/bin
 elif [ "$BUILD_TYPE" == "release-android" ]; then
     echo "Building release for ANDROID"
@@ -45,8 +45,8 @@ fi
 source ./utils.sh
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-MONERO_DIR=monero
-MONEROD_EXEC=monerod
+MONERO_DIR=masari
+MONEROD_EXEC=masarid
 
 MAKE='make'
 if [[ $platform == *bsd* ]]; then
@@ -55,7 +55,7 @@ fi
 
 # build libwallet
 $SHELL get_libwallet_api.sh $BUILD_TYPE
- 
+
 # build zxcvbn
 $MAKE -C src/zxcvbn-c || exit
 
@@ -71,9 +71,9 @@ if [ "$ANDROID" != true ] && ([ "$platform" == "linux32" ] || [ "$platform" == "
 fi
 
 if [ "$platform" == "darwin" ]; then
-    BIN_PATH=$BIN_PATH/monero-wallet-gui.app/Contents/MacOS/
+    BIN_PATH=$BIN_PATH/masari-wallet-gui.app/Contents/MacOS/
 elif [ "$platform" == "mingw64" ] || [ "$platform" == "mingw32" ]; then
-    MONEROD_EXEC=monerod.exe
+    MONEROD_EXEC=masarid.exe
 fi
 
 # force version update
@@ -85,10 +85,10 @@ popd
 echo "var GUI_MONERO_VERSION = \"$TAGNAME\"" >> version.js
 
 cd build
-qmake ../monero-wallet-gui.pro "$CONFIG" || exit
-$MAKE || exit 
+qmake ../masari-wallet-gui.pro "$CONFIG" || exit
+$MAKE || exit
 
-# Copy monerod to bin folder
+# Copy masarid to bin folder
 if [ "$platform" != "mingw32" ] && [ "$ANDROID" != true ]; then
 cp ../$MONERO_DIR/bin/$MONEROD_EXEC $BIN_PATH
 fi

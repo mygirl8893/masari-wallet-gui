@@ -18,22 +18,22 @@ if [ -z $OPENSSL_ROOT_DIR ]; then
 fi
 
 echo "Building IOS armv7"
-rm -r monero/build
-mkdir -p monero/build/release
-pushd monero/build/release
-cmake -D IOS=ON -D ARCH=armv7 -D BOOST_LIBRARYDIR=${BOOST_INCLUDEDIR} -D BOOST_INCLUDEDIR=${BOOST_INCLUDEDIR} -D OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR} -D OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR} -D CMAKE_BUILD_TYPE=debug -D STATIC=ON -D BUILD_GUI_DEPS=ON -D INSTALL_VENDORED_LIBUNBOUND=ON -D CMAKE_INSTALL_PREFIX="/Users/jacob/crypto/monero-core/monero"  ../..
+rm -r masari/build
+mkdir -p masari/build/release
+pushd masari/build/release
+cmake -D IOS=ON -D ARCH=armv7 -D BOOST_LIBRARYDIR=${BOOST_INCLUDEDIR} -D BOOST_INCLUDEDIR=${BOOST_INCLUDEDIR} -D OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR} -D OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR} -D CMAKE_BUILD_TYPE=debug -D STATIC=ON -D BUILD_GUI_DEPS=ON -D INSTALL_VENDORED_LIBUNBOUND=ON -D CMAKE_INSTALL_PREFIX="/Users/jacob/crypto/masari-wallet-gui/masari"  ../..
 make -j4 && make install
 popd
 echo "Building IOS arm64"
-rm -r monero/build
-mkdir -p monero/build/release
-pushd monero/build/release
-cmake -D IOS=ON -D ARCH=arm64 -D BOOST_LIBRARYDIR=${BOOST_INCLUDEDIR} -D BOOST_INCLUDEDIR=${BOOST_INCLUDEDIR} -D OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR} -D OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR} -D CMAKE_BUILD_TYPE=debug -D STATIC=ON -D BUILD_GUI_DEPS=ON -D INSTALL_VENDORED_LIBUNBOUND=ON -D CMAKE_INSTALL_PREFIX="/Users/jacob/crypto/monero-core/monero"  ../..
+rm -r masari/build
+mkdir -p masari/build/release
+pushd masari/build/release
+cmake -D IOS=ON -D ARCH=arm64 -D BOOST_LIBRARYDIR=${BOOST_INCLUDEDIR} -D BOOST_INCLUDEDIR=${BOOST_INCLUDEDIR} -D OPENSSL_INCLUDE_DIR=${OPENSSL_INCLUDE_DIR} -D OPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR} -D CMAKE_BUILD_TYPE=debug -D STATIC=ON -D BUILD_GUI_DEPS=ON -D INSTALL_VENDORED_LIBUNBOUND=ON -D CMAKE_INSTALL_PREFIX="/Users/jacob/crypto/masari-wallet-gui/masari"  ../..
 make -j4 && make install
 popd
 
 echo "Creating fat library for armv7 and arm64"
-pushd monero
+pushd masari
 mkdir -p lib-ios
 lipo -create lib-armv7/libwallet_merged.a lib-arm64/libwallet_merged.a -output lib-ios/libwallet_merged.a
 lipo -create lib-armv7/libunbound.a lib-arm64/libunbound.a -output lib-ios/libunbound.a

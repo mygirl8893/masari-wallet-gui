@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -29,29 +29,18 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import moneroComponents.PendingTransaction 1.0
+import masariComponents.PendingTransaction 1.0
 import "../components"
-import moneroComponents.Wallet 1.0
+import masariComponents.Wallet 1.0
 
 
 Rectangle {
     id: root
-    signal paymentClicked(string address, string paymentId, string amount, int mixinCount,
-                          int priority, string description)
-    signal sweepUnmixableClicked()
+    signal paymentClicked(string address, string paymentId, string amount, int priority, string description)
 
     color: "#F0EEEE"
-    property string startLinkText: qsTr("<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style><font size='2'> (</font><a href='#'>Start daemon</a><font size='2'>)</font>") + translationManager.emptyString
+    property string startLinkText: qsTr("<style type='text/css'>a {text-decoration: none; color: #85BB65; font-size: 14px;}</style><font size='2'> (</font><a href='#'>Start daemon</a><font size='2'>)</font>") + translationManager.emptyString
     property bool showAdvanced: false
-
-    function scaleValueToMixinCount(scaleValue) {
-        var scaleToMixinCount = [4,5,6,7,8,9,10,11,12,13,14,15,20,25];
-        if (scaleValue < scaleToMixinCount.length) {
-            return scaleToMixinCount[scaleValue];
-        } else {
-            return 0;
-        }
-    }
 
     function isValidOpenAliasAddress(address) {
       address = address.trim()
@@ -68,14 +57,6 @@ Rectangle {
       oaPopup.icon = StandardIcon.Information
       oaPopup.onCloseCallback = null
       oaPopup.open()
-    }
-
-    function updateMixin() {
-        var fillLevel = privacyLevelItem.fillLevel
-        var mixin = scaleValueToMixinCount(fillLevel)
-        print ("PrivacyLevel changed:"  + fillLevel)
-        print ("mixin count: "  + mixin)
-        privacyLabel.text = qsTr("Privacy level (ringsize %1)").arg(mixin+1) + translationManager.emptyString
     }
 
     function updateFromQrCode(address, payment_id, amount, tx_description, recipient_name) {
@@ -149,7 +130,7 @@ Rectangle {
 
               Image {
                   anchors.centerIn: parent
-                  source: "../images/moneroIcon.png"
+                  source: "../images/masariIcon.png"
               }
           }
           // Amount input
@@ -173,10 +154,10 @@ Rectangle {
               //anchors.bottom: amountLine.bottom
               width: 60
               text: qsTr("All") + translationManager.emptyString
-              shadowReleasedColor: "#FF4304"
+              shadowReleasedColor: "#85A865"
               shadowPressedColor: "#B32D00"
-              releasedColor: "#FF6C3C"
-              pressedColor: "#FF4304"
+              releasedColor: "#85BB65"
+              pressedColor: "#85A865"
               enabled : true
               onClicked: amountLine.text = "(all)"
           }
@@ -190,23 +171,12 @@ Rectangle {
       // For translations to work, the strings need to be listed in
       // the file components/StandardDropdown.qml too.
 
-      // Priorities before v5
       ListModel {
            id: priorityModel
 
-           ListElement { column1: qsTr("Low (x1 fee)") ; column2: ""; priority: PendingTransaction.Priority_Low }
-           ListElement { column1: qsTr("Medium (x20 fee)") ; column2: ""; priority: PendingTransaction.Priority_Medium }
-           ListElement { column1: qsTr("High (x166 fee)")  ; column2: "";  priority: PendingTransaction.Priority_High }
-       }
-
-      // Priorites after v5
-      ListModel {
-           id: priorityModelV5
-
-           ListElement { column1: qsTr("Slow (x0.25 fee)") ; column2: ""; priority: 1}
-           ListElement { column1: qsTr("Default (x1 fee)") ; column2: ""; priority: 2 }
-           ListElement { column1: qsTr("Fast (x5 fee)") ; column2: ""; priority: 3 }
-           ListElement { column1: qsTr("Fastest (x41.5 fee)")  ; column2: "";  priority: 4 }
+           ListElement { column1: qsTr("Low (x1 fee)") ; column2: ""; priority: 1}
+           ListElement { column1: qsTr("Medium (x2 fee)") ; column2: ""; priority: 2 }
+           ListElement { column1: qsTr("High (x3 fee)") ; column2: ""; priority: 3 }
 
        }
 
@@ -217,10 +187,10 @@ Rectangle {
           anchors.rightMargin: 17
           anchors.topMargin: 5
           anchors.left: transactionPriority.left
-          shadowReleasedColor: "#FF4304"
+          shadowReleasedColor: "#85A865"
           shadowPressedColor: "#B32D00"
-          releasedColor: "#FF6C3C"
-          pressedColor: "#FF4304"
+          releasedColor: "#85BB65"
+          pressedColor: "#85A865"
           z: 1
       }
 
@@ -234,7 +204,7 @@ Rectangle {
           anchors.topMargin: 30
           fontSize: 14
           textFormat: Text.RichText
-          text: qsTr("<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style>\
+          text: qsTr("<style type='text/css'>a {text-decoration: none; color: #85BB65; font-size: 14px;}</style>\
                       Address <font size='2'>  ( Paste in or select from </font> <a href='#'>Address book</a><font size='2'> )</font>")
                 + translationManager.emptyString
 
@@ -253,10 +223,10 @@ Rectangle {
               anchors.leftMargin: 17
               anchors.topMargin: 5
               text: qsTr("QR Code") + translationManager.emptyString
-              shadowReleasedColor: "#FF4304"
+              shadowReleasedColor: "#85A865"
               shadowPressedColor: "#B32D00"
-              releasedColor: "#FF6C3C"
-              pressedColor: "#FF4304"
+              releasedColor: "#85BB65"
+              pressedColor: "#85A865"
               visible : appWindow.qrScannerEnabled
               enabled : visible
               width: visible ? 60 : 0
@@ -271,7 +241,7 @@ Rectangle {
               anchors.right: resolveButton.left
               //anchors.leftMargin: 17
               anchors.topMargin: 5
-              placeholderText: "4..."
+              placeholderText: "5..."
               // validator: RegExpValidator { regExp: /[0-9A-Fa-f]{95}/g }
           }
 
@@ -283,10 +253,10 @@ Rectangle {
               anchors.rightMargin: 17
               width: 60
               text: qsTr("Resolve") + translationManager.emptyString
-              shadowReleasedColor: "#FF4304"
+              shadowReleasedColor: "#85A865"
               shadowPressedColor: "#B32D00"
-              releasedColor: "#FF6C3C"
-              pressedColor: "#FF4304"
+              releasedColor: "#85BB65"
+              pressedColor: "#85A865"
               enabled : isValidOpenAliasAddress(addressLine.text)
               onClicked: {
                   var result = walletManager.resolveOpenAlias(addressLine.text)
@@ -399,10 +369,10 @@ Rectangle {
           StandardButton {
               id: sendButton
               text: qsTr("Send") + translationManager.emptyString
-              shadowReleasedColor: "#FF4304"
+              shadowReleasedColor: "#85A865"
               shadowPressedColor: "#B32D00"
-              releasedColor: "#FF6C3C"
-              pressedColor: "#FF4304"
+              releasedColor: "#85BB65"
+              pressedColor: "#85A865"
               enabled : !appWindow.viewOnly && pageRoot.checkInformation(amountLine.text, addressLine.text, paymentIdLine.text, appWindow.persistentSettings.testnet)
               onClicked: {
                   console.log("Transfer: paymentClicked")
@@ -411,8 +381,7 @@ Rectangle {
                   console.log("amount: " + amountLine.text)
                   addressLine.text = addressLine.text.trim()
                   paymentIdLine.text = paymentIdLine.text.trim()
-                  root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, scaleValueToMixinCount(privacyLevelItem.fillLevel),
-                                 priority, descriptionLine.text)
+                  root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, priority, descriptionLine.text)
 
               }
           }
@@ -483,7 +452,6 @@ Rectangle {
             id: privacyLevelItem
             anchors.left: parent.left
             anchors.right: parent.right
-            onFillLevelChanged: updateMixin()
         }
 
 
@@ -495,26 +463,12 @@ Rectangle {
             columns: (isMobile) ? 2 : 6
 
             StandardButton {
-                id: sweepUnmixableButton
-                text: qsTr("Sweep Unmixable") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
-                shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
-                enabled : pageRoot.enabled
-                onClicked: {
-                    console.log("Transfer: sweepUnmixableClicked")
-                    root.sweepUnmixableClicked()
-                }
-            }
-
-            StandardButton {
                 id: saveTxButton
                 text: qsTr("Create tx file") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 visible: appWindow.viewOnly
                 enabled: pageRoot.checkInformation(amountLine.text, addressLine.text, paymentIdLine.text, appWindow.persistentSettings.testnet)
                 onClicked: {
@@ -524,8 +478,7 @@ Rectangle {
                     console.log("amount: " + amountLine.text)
                     addressLine.text = addressLine.text.trim()
                     paymentIdLine.text = paymentIdLine.text.trim()
-                    root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, scaleValueToMixinCount(privacyLevelItem.fillLevel),
-                                   priority, descriptionLine.text)
+                    root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, priority, descriptionLine.text)
 
                 }
             }
@@ -533,10 +486,10 @@ Rectangle {
             StandardButton {
                 id: signTxButton
                 text: qsTr("Sign tx file") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 visible: !appWindow.viewOnly
                 onClicked: {
                     console.log("Transfer: sign tx clicked")
@@ -547,10 +500,10 @@ Rectangle {
             StandardButton {
                 id: submitTxButton
                 text: qsTr("Submit tx file") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 visible: appWindow.viewOnly
                 enabled: pageRoot.enabled
                 onClicked: {
@@ -569,7 +522,7 @@ Rectangle {
     FileDialog {
         id: signTxDialog
         title: qsTr("Please choose a file") + translationManager.emptyString
-        folder: "file://" +moneroAccountsDir
+        folder: "file://" +masariAccountsDir
         nameFilters: [ "Unsigned transfers (*)"]
 
         onAccepted: {
@@ -594,7 +547,7 @@ Rectangle {
                     + (transaction.paymentId[i] == "" ? "" : qsTr("\n\payment ID: ") + transaction.paymentId[i])
                     + qsTr("\nAmount: ") + walletManager.displayAmount(transaction.amount(i))
                     + qsTr("\nFee: ") + walletManager.displayAmount(transaction.fee(i))
-                    + qsTr("\nRingsize: ") + transaction.mixin(i+1)
+                    + qsTr("\nRingsize: 13")
 
                     // TODO: add descriptions to unsigned_tx_set?
     //              + (transactionDescription === "" ? "" : (qsTr("\n\nDescription: ") + transactionDescription))
@@ -630,7 +583,7 @@ Rectangle {
     FileDialog {
         id: submitTxDialog
         title: qsTr("Please choose a file") + translationManager.emptyString
-        folder: "file://" +moneroAccountsDir
+        folder: "file://" +masariAccountsDir
         nameFilters: [ "signed transfers (*)"]
 
         onAccepted: {
@@ -681,13 +634,12 @@ Rectangle {
     function onPageCompleted() {
         console.log("transfer page loaded")
         updateStatus();
-        updateMixin();
         updatePriorityDropdown()
     }
 
     function updatePriorityDropdown() {
-        priorityDropdown.dataModel = priorityModelV5;
-        priorityDropdown.currentIndex = 1
+        priorityDropdown.dataModel = priorityModel;
+        priorityDropdown.currentIndex = 0
         priorityDropdown.update()
     }
 

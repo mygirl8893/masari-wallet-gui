@@ -24,11 +24,6 @@ quint64 PendingTransaction::amount() const
     return m_pimpl->amount();
 }
 
-quint64 PendingTransaction::dust() const
-{
-    return m_pimpl->dust();
-}
-
 quint64 PendingTransaction::fee() const
 {
     return m_pimpl->fee();
@@ -55,7 +50,7 @@ void PendingTransaction::setFilename(const QString &fileName)
     m_fileName = fileName;
 }
 
-PendingTransaction::PendingTransaction(Monero::PendingTransaction *pt, QObject *parent)
+PendingTransaction::PendingTransaction(Masari::PendingTransaction *pt, QObject *parent)
     : QObject(parent), m_pimpl(pt)
 {
 

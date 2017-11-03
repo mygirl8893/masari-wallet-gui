@@ -33,7 +33,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
+import "../components" as MasariComponents
 
 Window {
     id: root
@@ -90,7 +90,7 @@ Window {
             }
 
             Text {
-                text: qsTr("Starting Monero daemon in %1 seconds").arg(countDown);
+                text: qsTr("Starting Masari daemon in %1 seconds").arg(countDown);
                 font.pixelSize: 18
                 Layout.alignment: Qt.AlignHCenter
                 Layout.fillWidth: true
@@ -104,14 +104,14 @@ Window {
             spacing: 60
             Layout.alignment: Qt.AlignHCenter
 
-            MoneroComponents.StandardButton {
+            MasariComponents.StandardButton {
                 id: okButton
                 visible:false
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Start daemon (%1)").arg(countDown)
                 KeyNavigation.tab: cancelButton
                 onClicked: {
@@ -122,13 +122,13 @@ Window {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            MasariComponents.StandardButton {
                 id: cancelButton
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Use custom settings")
 
                 onClicked: {

@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -35,7 +35,7 @@ import "../version.js" as Version
 
 
 import "../components"
-import moneroComponents.Clipboard 1.0
+import masariComponents.Clipboard 1.0
 
 Rectangle {
     property var daemonAddress
@@ -86,10 +86,10 @@ Rectangle {
             StandardButton {
                 id: closeWalletButton
                 text: qsTr("Close wallet") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 visible: true
                 onClicked: {
                     console.log("closing wallet button clicked")
@@ -101,10 +101,10 @@ Rectangle {
                 enabled: !viewOnly
                 id: createViewOnlyWalletButton
                 text: qsTr("Create view only wallet") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 visible: true
                 onClicked: {
                     wizard.openCreateViewOnlyWalletPage();
@@ -113,10 +113,10 @@ Rectangle {
 
             StandardButton {
                 id: showSeedButton
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Show seed & keys") + translationManager.emptyString
                 onClicked: {
                     settingsPasswordDialog.open();
@@ -127,10 +127,10 @@ Rectangle {
 
             StandardButton {
                 id: rescanWalletbutton
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 text: qsTr("Rescan wallet cache") + translationManager.emptyString
                 onClicked: {
                     // Show confirmation dialog
@@ -161,10 +161,10 @@ Rectangle {
             StandardButton {
                 id: rescanSpentButton
                 text: qsTr("Rescan wallet balance") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 onClicked: {
                     if (!currentWallet.rescanSpent()) {
                         console.error("Error: ", currentWallet.errorString);
@@ -210,10 +210,10 @@ Rectangle {
                 enabled: !appWindow.daemonRunning
                 id: startDaemonButton
                 text: qsTr("Start daemon") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 onClicked: {
                     appWindow.startDaemon(daemonFlags.text)
                 }
@@ -224,10 +224,10 @@ Rectangle {
                 enabled: appWindow.daemonRunning
                 id: stopDaemonButton
                 text: qsTr("Stop daemon") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 onClicked: {
                     appWindow.stopDaemon()
                 }
@@ -237,10 +237,10 @@ Rectangle {
                 visible: true
                 id: daemonStatusButton
                 text: qsTr("Show status") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 onClicked: {
                     daemonManager.sendCommand("status",currentWallet.testnet);
                     daemonConsolePopup.open();
@@ -327,7 +327,7 @@ Rectangle {
                 id: daemonPort
                 Layout.preferredWidth: 100
                 Layout.fillWidth: true
-                text: (daemonAddress !== undefined) ? daemonAddress[1] : "18081"
+                text: (daemonAddress !== undefined) ? daemonAddress[1] : "38081"
                 placeholderText: qsTr("Port") + translationManager.emptyString
             }
         }
@@ -370,10 +370,10 @@ Rectangle {
                 Layout.fillWidth: false
                 Layout.leftMargin: 30
                 text: qsTr("Connect") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#85A865"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#85BB65"
+                pressedColor: "#85A865"
                 onClicked: {
                     console.log("saving daemon adress settings")
                     var newDaemon = daemonAddr.text.trim() + ":" + daemonPort.text.trim()
@@ -492,9 +492,9 @@ Rectangle {
         }
 
         TextBlock {
-            id: guiMoneroVersion
+            id: guiMasariVersion
             Layout.fillWidth: true
-            text: qsTr("Embedded Monero version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
+            text: qsTr("Embedded Masari version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
         }
         TextBlock {
             Layout.fillWidth: true
@@ -591,19 +591,19 @@ Rectangle {
                 confirmationDialog.title = qsTr("Warning") + translationManager.emptyString;
                 confirmationDialog.text = "";
                 if(validator.readOnly) {
-                    confirmationDialog.text  += qsTr("Error: Filesystem is read only") + "\n\n"                  
+                    confirmationDialog.text  += qsTr("Error: Filesystem is read only") + "\n\n"
                 }
-                
+
                 if(validator.storageAvailable < 20) {
-                    confirmationDialog.text  += qsTr("Warning: There's only %1 GB available on the device. Blockchain requires ~%2 GB of data.").arg(validator.storageAvailable).arg(15) + "\n\n"     
+                    confirmationDialog.text  += qsTr("Warning: There's only %1 GB available on the device. Blockchain requires ~%2 GB of data.").arg(validator.storageAvailable).arg(15) + "\n\n"
                 } else {
                     confirmationDialog.text  += qsTr("Note: There's %1 GB available on the device. Blockchain requires ~%2 GB of data.").arg(validator.storageAvailable).arg(15) + "\n\n"
                 }
-                
+
                 if(!validator.lmdbExists) {
-                    confirmationDialog.text  += qsTr("Note: lmdb folder not found. A new folder will be created.") + "\n\n" 
+                    confirmationDialog.text  += qsTr("Note: lmdb folder not found. A new folder will be created.") + "\n\n"
                 }
-   
+
 
                 confirmationDialog.icon = StandardIcon.Question
                 confirmationDialog.cancelText = qsTr("Cancel")

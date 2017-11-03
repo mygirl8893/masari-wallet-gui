@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -197,10 +197,6 @@ Item {
                 property string stringLow: qsTr("Low (x1 fee)") + translationManager.emptyString
                 property string stringMedium:  qsTr("Medium (x20 fee)") + translationManager.emptyString
                 property string stringHigh:  qsTr("High (x166 fee)") + translationManager.emptyString
-                property string stringSlow: qsTr("Slow (x0.25 fee)") + translationManager.emptyString
-                property string stringDefault: qsTr("Default (x1 fee)") + translationManager.emptyString
-                property string stringFast: qsTr("Fast (x5 fee)") + translationManager.emptyString
-                property string stringFastest: qsTr("Fastest (x41.5 fee)") + translationManager.emptyString
                 property string stringAll:  qsTr("All") + translationManager.emptyString
                 property string stringSent:  qsTr("Sent") + translationManager.emptyString
                 property string stringReceived:  qsTr("Received") + translationManager.emptyString

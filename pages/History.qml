@@ -28,11 +28,11 @@
 
 import QtQuick 2.0
 
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
-import moneroComponents.TransactionInfo 1.0
-import moneroComponents.TransactionHistoryModel 1.0
+import masariComponents.Wallet 1.0
+import masariComponents.WalletManager 1.0
+import masariComponents.TransactionHistory 1.0
+import masariComponents.TransactionInfo 1.0
+import masariComponents.TransactionHistoryModel 1.0
 
 import "../components"
 
