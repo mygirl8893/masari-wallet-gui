@@ -112,7 +112,7 @@ Rectangle {
                 height: 490 * scaleRatio
                 width: 259 * scaleRatio
 
-                Image {
+              Image {
                     width: 259; height: 170
                     fillMode: Image.PreserveAspectFit
                     source: "images/card-background.png"
@@ -158,7 +158,7 @@ Rectangle {
                     visible: !isMobile
                     id: balanceText
                     anchors.left: parent.left
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 30
                     anchors.top: parent.top
                     anchors.topMargin: 76
                     font.family: "Arial"
@@ -179,11 +179,11 @@ Rectangle {
                     id: unlockedBalanceText
                     visible: true
                     anchors.left: parent.left
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 30
                     anchors.top: parent.top
-                    anchors.topMargin: 126
+                    anchors.topMargin: 130
                     font.family: "Arial"
-                    color: "#FFFFFF"
+                    color: "white"
                     text: "N/A"
                     // dynamically adjust text size
                     font.pixelSize: {
@@ -201,20 +201,21 @@ Rectangle {
                     visible: true
                     text: qsTr("Unlocked balance") + translationManager.emptyString
                     anchors.left: parent.left
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 25
                     anchors.top: parent.top
-                    anchors.topMargin: 110
+                    anchors.topMargin: 105
+                    fontSize: 20
                 }
 
                 Label {
                     visible: !isMobile
                     id: balanceLabel
                     text: qsTr("Balance") + translationManager.emptyString
-                    fontSize: 14
+                    fontSize: 20
                     anchors.left: parent.left
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 25
                     anchors.top: parent.top
-                    anchors.topMargin: 60
+                    anchors.topMargin: 50
                 }
                 Item { //separator
                     anchors.left: parent.left
@@ -299,7 +300,7 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 16
-                color: "#313131"
+                color: "#197F00"
                 height: 1
             }
 

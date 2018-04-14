@@ -66,7 +66,7 @@ Rectangle {
             font.family: MoneroComponents.Style.fontMedium.name
             font.pixelSize: 13 * scaleRatio
             font.bold: true
-            color: "white"
+            color: "black"
             text: qsTr("Synchronizing %1").arg(syncType)
             height: 18 * scaleRatio
         }
@@ -79,7 +79,7 @@ Rectangle {
             font.family: MoneroComponents.Style.fontMedium.name
             font.pixelSize: 13 * scaleRatio
             font.bold: true
-            color: "white"
+            color: "black"
             height:18 * scaleRatio
         }
 
@@ -104,7 +104,7 @@ Rectangle {
                 width: (maxWidth * fillLevel) / 100
                 radius: 8
                 // could change color based on progressbar status; if(item.fillLevel < 99 )
-                color: "#FA6800"
+                color: "#197F00"
             }
 
             Rectangle {

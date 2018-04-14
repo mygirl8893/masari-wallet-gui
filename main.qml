@@ -43,7 +43,7 @@ import "wizard"
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero"
+    title: "Masari-GUI"
 
     property var currentItem
     property bool whatIsEnable: false
@@ -706,7 +706,6 @@ ApplicationWindow {
     function handleSweepUnmixable() {
         console.log("Creating transaction: ")
 
-        transaction = currentWallet.createSweepUnmixableTransaction();
         if (transaction.status !== PendingTransaction.Status_Ok) {
             console.error("Can't create transaction: ", transaction.errorString);
             informationPopup.title = qsTr("Error") + translationManager.emptyString;
@@ -1020,7 +1019,7 @@ ApplicationWindow {
         property bool   allow_background_mining : false
         property bool   miningIgnoreBattery : true
         property var    nettype: NetworkType.MAINNET
-        property string daemon_address: nettype == NetworkType.TESTNET ? "localhost:28081" : nettype == NetworkType.STAGENET ? "localhost:38081" : "localhost:18081"
+        property string daemon_address: nettype == NetworkType.TESTNET ? "localhost:48081" : nettype == NetworkType.STAGENET ? "localhost:58081" : "localhost:38081"
         property string payment_id
         property int    restore_height : 0
         property bool   is_recovering : false

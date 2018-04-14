@@ -184,7 +184,7 @@ Rectangle {
                     anchors.leftMargin: 10
 
                     height: 1
-                    color: "#404040"
+                    color: "#197F00"
                 }
 
                 Image {
@@ -300,7 +300,7 @@ Rectangle {
             Label {
                 id: trackingLabel
                 textFormat: Text.RichText
-                text: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style>" +
+                text: "<style type='text/css'>a {text-decoration: none; color: #197F00; font-size: 14px;}</style>" +
                       qsTr("Tracking") +
                       "<font size='2'> (</font><a href='#'>" +
                       qsTr("help") +
@@ -333,7 +333,7 @@ Rectangle {
                 textFormat: Text.RichText
                 text: ""
                 selectByMouse: true
-                color: 'white'
+                color: 'grey'
             }
         }
 

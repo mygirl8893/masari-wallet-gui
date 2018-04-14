@@ -44,39 +44,6 @@ Rectangle {
     property alias maximizeButtonVisible: maximizeButton.visible
     z: 1
 
-    Item {
-        id: test
-        width: parent.width
-        height: 50
-        z: 1
-
-        // use jpg for gradiency
-        Image {
-           anchors.fill: parent
-           height: parent.height
-           width: parent.width
-           source: "../images/titlebarGradient.jpg"
-        }
-    }
-
-    Item{
-        id: titlebarlogo
-        width: 125
-        height: 50
-        anchors.centerIn: parent
-        visible: customDecorations
-        z: 1
-
-        Image {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 11
-            width: 125
-            height: 28
-            source: "../images/titlebarLogo.png"
-        }
-    }
-
     // collapse left panel
     Rectangle {
         id: goToBasicVersionButton

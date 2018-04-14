@@ -1,6 +1,6 @@
 #!/bin/bash
-MONERO_URL=https://github.com/monero-project/monero.git
-MONERO_BRANCH=master
+MONERO_URL=https://github.com/masari-project/masari.git
+MONERO_BRANCH=upstream-merge
 
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -13,11 +13,11 @@ BUILD_LIBWALLET=false
 
 # init and update monero submodule
 if [ ! -d $MONERO_DIR/src ]; then
-    git submodule init monero
+    git submodule init masari
 fi
 git submodule update --remote
 git -C $MONERO_DIR fetch
-git -C $MONERO_DIR checkout release-v0.12
+git -C $MONERO_DIR checkout upstream-merge
 
 # get monero core tag
 get_tag
