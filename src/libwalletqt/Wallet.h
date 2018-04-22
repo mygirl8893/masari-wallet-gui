@@ -191,7 +191,7 @@ public:
                                                        quint32 mixin_count, PendingTransaction::Priority priority);
 
     //! creates async transaction with all outputs
-    Q_INVOKABLE void createTransactionAllAsync(const QString &dst_addr, const QString &payment_idz, PendingTransaction::Priority priority);
+    Q_INVOKABLE void createTransactionAllAsync(const QString &dst_addr, const QString &payment_id, quint32 mixin_count, PendingTransaction::Priority priority);
 
     //! Sign a transfer from file
     Q_INVOKABLE UnsignedTransaction * loadTxFile(const QString &fileName);

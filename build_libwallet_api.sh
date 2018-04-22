@@ -2,7 +2,7 @@
 
 
 # MONERO_URL=https://github.com/masari-project/masari.git
-# MONERO_BRANCH=upstream-merge
+# MONERO_BRANCH=upstream-merge-original
 CPU_CORE_COUNT=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
