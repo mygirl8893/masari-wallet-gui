@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2015, The Monero Project
+// Copyright (c) 2014-2018, The Monero Project
 // 
 // All rights reserved.
 // 
@@ -37,7 +37,7 @@ ListView {
     footer: Rectangle {
         height: 127
         width: listView.width
-        color: "#FFFFFF"
+        color: "#197F00"
 
         Text {
             anchors.centerIn: parent
@@ -53,7 +53,7 @@ ListView {
         id: delegate
         height: 90
         width: listView.width
-        color: index % 2 ? "#F8F8F8" : "#FFFFFF"
+        color: index % 2 ? "#197F00" : "#197F00"
         z: listView.count - index
         function collapseDropdown() { dropdown.expanded = false }
         
@@ -246,7 +246,7 @@ ListView {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             height: 1
-            color: "#DBDBDB"
+            color: "#197F00"
         }
     }
 }

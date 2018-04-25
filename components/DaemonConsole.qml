@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2015, The Monero Project
+// Copyright (c) 2014-2018, The Monero Project
 //
 // All rights reserved.
 //
@@ -110,10 +110,6 @@ Window {
                 id: okButton
                 width: 120
                 fontSize: 14
-                shadowReleasedColor: "#FF4304"
-                shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
                 text: qsTr("Close") + translationManager.emptyString
                 onClicked: {
                     root.close()
@@ -128,7 +124,7 @@ Window {
                 placeholderText: qsTr("command + enter (e.g help)") + translationManager.emptyString
                 onAccepted: {
                     if(text.length > 0)
-                        daemonManager.sendCommand(text,currentWallet.testnet);
+                        daemonManager.sendCommand(text,currentWallet.nettype);
                     text = ""
                 }
             }
@@ -138,10 +134,6 @@ Window {
 //                id: sendCommandButton
 //                enabled: sendCommandText.text.length > 0
 //                fontSize: 14
-//                shadowReleasedColor: "#FF4304"
-//                shadowPressedColor: "#B32D00"
-//                releasedColor: "#FF6C3C"
-//                pressedColor: "#FF4304"
 //                text: qsTr("Send command")
 //                onClicked: {
 //                    daemonManager.sendCommand(sendCommandText.text,currentWallet.testnet);

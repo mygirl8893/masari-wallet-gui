@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2015, The Monero Project
+// Copyright (c) 2014-2018, The Monero Project
 // 
 // All rights reserved.
 // 
@@ -29,6 +29,7 @@
 import QtQuick 2.2
 import QtQml 2.2
 import QtQuick.Layouts 1.1
+import moneroComponents.NetworkType 1.0
 import "../components"
 
 ColumnLayout {
@@ -38,29 +39,16 @@ ColumnLayout {
     signal openWalletClicked()
     opacity: 0
     visible: false
-    property int buttonSize: (isMobile) ? 80 : 190
-    property int buttonImageSize: (isMobile) ? buttonSize - 10 : buttonSize - 30
+    property int buttonSize: (isMobile) ? 80 * scaleRatio : 190 * scaleRatio
+    property int buttonImageSize: (isMobile) ? buttonSize - 10 * scaleRatio : buttonSize - 30 * scaleRatio
 
     function onPageClosed() {
         // Save settings used in open from file.
         // other wizard settings are saved on last page in applySettings()
-        appWindow.persistentSettings.testnet = wizard.settings["testnet"]
-        appWindow.persistentSettings.daemon_address = wizard.settings["daemon_address"]
         appWindow.persistentSettings.language = wizard.settings.language
         appWindow.persistentSettings.locale   = wizard.settings.locale
 
         return true;
-    }
-
-    function saveDaemonAddress() {
-        wizard.settings["daemon_address"] = daemonAddress.text
-        wizard.settings["testnet"] = testNet.checked
-    }
-
-    QtObject {
-        id: d
-        readonly property string daemonAddressTestnet : "localhost:38081"
-        readonly property string daemonAddressMainnet : "localhost:18081"
     }
 
     Behavior on opacity {
@@ -73,13 +61,13 @@ ColumnLayout {
         id: headerColumn
         Layout.leftMargin: wizardLeftMargin
         Layout.rightMargin: wizardRightMargin
-        Layout.bottomMargin: (!isMobile) ? 40 : 20
-        spacing: 30
+        Layout.bottomMargin: (!isMobile) ? 40 * scaleRatio : 20
+        spacing: 30 * scaleRatio
 
         Text {
             Layout.fillWidth: true
             font.family: "Arial"
-            font.pixelSize: 28
+            font.pixelSize: 28 * scaleRatio
             //renderType: Text.NativeRendering
             color: "#3F3F3F"
             wrapMode: Text.Wrap
@@ -90,7 +78,7 @@ ColumnLayout {
         Text {
             Layout.fillWidth: true
             font.family: "Arial"
-            font.pixelSize: 18
+            font.pixelSize: 18 * scaleRatio
             //renderType: Text.NativeRendering
             color: "#4A4646"
             wrapMode: Text.Wrap
@@ -104,8 +92,8 @@ ColumnLayout {
         Layout.rightMargin: wizardRightMargin
         Layout.alignment: Qt.AlignCenter
         id: actionButtons
-        columnSpacing: 40
-        rowSpacing: 10
+        columnSpacing: 40 * scaleRatio
+        rowSpacing: 10 * scaleRatio
         Layout.fillWidth: true
         Layout.fillHeight: true
         flow: isMobile ? GridLayout.TopToBottom : GridLayout.LeftToRight
@@ -114,8 +102,8 @@ ColumnLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
             flow: !isMobile ? GridLayout.TopToBottom : GridLayout.LeftToRight
-            rowSpacing: 20
-            columnSpacing: 10
+            rowSpacing: 20 * scaleRatio
+            columnSpacing: 10 * scaleRatio
 
             Rectangle {
                 Layout.preferredHeight: page.buttonSize
@@ -139,16 +127,15 @@ ColumnLayout {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        page.saveDaemonAddress()
                         page.createWalletClicked()
                     }
                 }
             }
 
             Text {
-                Layout.preferredWidth: 190
+                Layout.preferredWidth: page.buttonSize
                 font.family: "Arial"
-                font.pixelSize: 16
+                font.pixelSize: 16 * scaleRatio
                 color: "#4A4949"
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
@@ -160,8 +147,8 @@ ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
             flow: !isMobile ? GridLayout.TopToBottom : GridLayout.LeftToRight
-            rowSpacing: 20
-            columnSpacing: 10
+            rowSpacing: 20 * scaleRatio
+            columnSpacing: 10 * scaleRatio
 
             Rectangle {
                 Layout.preferredHeight: page.buttonSize
@@ -170,7 +157,7 @@ ColumnLayout {
                 color: recoverWalletArea.containsMouse ? "#DBDBDB" : "#FFFFFF"
 
                 Image {
-                    width: page.buttomImageSize
+                    width: page.buttonImageSize
                     height: page.buttonImageSize
                     fillMode: Image.PreserveAspectFit
                     anchors.centerIn: parent
@@ -182,16 +169,15 @@ ColumnLayout {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        page.saveDaemonAddress()
                         page.recoveryWalletClicked()
                     }
                 }
             }
 
             Text {
-                Layout.preferredWidth: 190
+                Layout.preferredWidth: page.buttonSize
                 font.family: "Arial"
-                font.pixelSize: 16
+                font.pixelSize: 16 * scaleRatio
                 color: "#4A4949"
                 horizontalAlignment: Text.AlignHCenter
                 text: qsTr("Restore wallet from keys or mnemonic seed") + translationManager.emptyString
@@ -204,8 +190,8 @@ ColumnLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
             flow: !isMobile ? GridLayout.TopToBottom : GridLayout.LeftToRight
-            rowSpacing: 20
-            columnSpacing: 10
+            rowSpacing: 20 * scaleRatio
+            columnSpacing: 10 * scaleRatio
 
             Rectangle {
                 Layout.preferredHeight: page.buttonSize
@@ -226,16 +212,15 @@ ColumnLayout {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        page.saveDaemonAddress()
                         page.openWalletClicked()
                     }
                 }
             }
 
             Text {
-                Layout.preferredWidth: 190
+                Layout.preferredWidth: page.buttonSize
                 font.family: "Arial"
-                font.pixelSize: 16
+                font.pixelSize: 16 * scaleRatio
                 color: "#4A4949"
                 horizontalAlignment: Text.AlignHCenter
                 text: qsTr("Open a wallet from file") + translationManager.emptyString
@@ -247,62 +232,51 @@ ColumnLayout {
 
     }
 
-    // daemon select
-    // TODO: Move to separate page
-
     ColumnLayout {
         Layout.leftMargin: wizardLeftMargin
         Layout.rightMargin: wizardRightMargin
+        Layout.topMargin: 30 * scaleRatio
         Layout.alignment: Qt.AlignCenter
+        Layout.fillWidth: true
+        spacing: 50 * scaleRatio
 
-
-        Label {
-            Layout.topMargin: 20
-            fontSize: 14
-            text: qsTr("Custom daemon address (optional)") + translationManager.emptyString
-                  + translationManager.emptyString
+        Rectangle {
+            width: 100 * scaleRatio
+            CheckBox {
+                id: testNet
+                text: qsTr("Testnet") + translationManager.emptyString
+                background: "#FFFFFF"
+                fontColor: "#4A4646"
+                fontSize: 16 * scaleRatio
+                checkedIcon: "../images/checkedBlackIcon.png"
+                uncheckedIcon: "../images/uncheckedIcon.png"
+                checked: appWindow.persistentSettings.nettype == NetworkType.TESTNET;
+                onClicked: {
+                    persistentSettings.nettype = testNet.checked ? NetworkType.TESTNET : NetworkType.MAINNET
+                    stageNet.checked = false;
+                    console.log("Network type set to ", persistentSettings.nettype == NetworkType.TESTNET ? "Testnet" : "Mainnet")
+                }
+            }
         }
 
-        GridLayout {
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter
-
-            columnSpacing: 20
-            rowSpacing: 20
-            flow: isMobile ? GridLayout.TopToBottom : GridLayout.LeftToRight
-
-            RowLayout {
-                spacing: 20
-                Layout.alignment: Qt.AlignCenter
-
-                LineEdit {
-                    id: daemonAddress
-                    Layout.alignment: Qt.AlignCenter
-                    width: 200
-                    fontSize: 14
-                    text: {
-                        if(appWindow.persistentSettings.daemon_address)
-                            return appWindow.persistentSettings.daemon_address;
-                        return testNet.checked ? d.daemonAddressTestnet : d.daemonAddressMainnet
-                    }
-
-                }
-
-                CheckBox {
-                    id: testNet
-                    Layout.alignment: Qt.AlignCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: qsTr("Testnet") + translationManager.emptyString
-                    background: "#FFFFFF"
-                    fontColor: "#4A4646"
-                    fontSize: 16
-                    checkedIcon: "../images/checkedVioletIcon.png"
-                    uncheckedIcon: "../images/uncheckedIcon.png"
-                    checked: appWindow.persistentSettings.testnet;
+        Rectangle {
+            width: 100 * scaleRatio
+            CheckBox {
+                id: stageNet
+                text: qsTr("Stagenet") + translationManager.emptyString
+                background: "#FFFFFF"
+                fontColor: "#4A4646"
+                fontSize: 16 * scaleRatio
+                checkedIcon: "../images/checkedBlackIcon.png"
+                uncheckedIcon: "../images/uncheckedIcon.png"
+                checked: appWindow.persistentSettings.nettype == NetworkType.STAGENET;
+                onClicked: {
+                    persistentSettings.nettype = stageNet.checked ? NetworkType.STAGENET : NetworkType.MAINNET
+                    testNet.checked = false;
+                    console.log("Network type set to ", persistentSettings.nettype == NetworkType.STAGENET ? "Stagenet" : "Mainnet")
                 }
             }
         }
     }
-
 }
 

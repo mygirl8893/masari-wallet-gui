@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2015, The Monero Project
+// Copyright (c) 2014-2018, The Monero Project
 // 
 // All rights reserved.
 // 
@@ -30,7 +30,7 @@ import QtQuick 2.0
 import "../components"
 
 Rectangle {
-    color: "#F0EEEE"
+    color: "#197F00"
 
     SearchInput {
         id: searchInput
@@ -53,7 +53,7 @@ Rectangle {
         anchors.margins: 17
         font.family: "Arial"
         font.pixelSize: 18
-        color: "#4A4949"
+        color: "#197F00"
         text: qsTr("Quick transfer") + translationManager.emptyString
     }
 
@@ -87,10 +87,10 @@ Rectangle {
             id: sendButton
             width: 60
             text: qsTr("SEND")
-            shadowReleasedColor: "#FF4304"
-            shadowPressedColor: "#B32D00"
-            releasedColor: "#FF6C3C"
-            pressedColor: "#FF4304"
+            shadowReleasedColor: "#197F00"
+            shadowPressedColor: "#197F00"
+            releasedColor: "#197F00"
+            pressedColor: "#197F00"
         }
 
         Text {
@@ -113,14 +113,14 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.top: row.bottom
         anchors.topMargin: 17
-        color: "#FFFFFF"
+        color: "#197F00"
 
         Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
             height: 1
-            color: "#DBDBDB"
+            color: "#197F00"
         }
 
         ListModel {

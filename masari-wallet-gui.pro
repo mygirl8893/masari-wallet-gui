@@ -4,7 +4,12 @@ QT += qml quick widgets
 
 WALLET_ROOT=$$PWD/monero
 
-CONFIG += c++11
+CONFIG += c++11 link_pkgconfig
+packagesExist(libpcsclite) {
+    PKGCONFIG += libpcsclite
+}
+QMAKE_CXXFLAGS += -fPIC -fstack-protector
+QMAKE_LFLAGS += -fstack-protector
 
 # cleaning "auto-generated" bitmonero directory on "make distclean"
 QMAKE_DISTCLEAN += -r $$WALLET_ROOT
@@ -26,6 +31,7 @@ HEADERS += \
     src/libwalletqt/TransactionInfo.h \
     src/libwalletqt/QRCodeImageProvider.h \
     src/libwalletqt/Transfer.h \
+    src/NetworkType.h \
     oshelper.h \
     TranslationManager.h \
     src/model/TransactionHistoryModel.h \
@@ -35,6 +41,8 @@ HEADERS += \
     src/QR-Code-generator/QrSegment.hpp \
     src/model/AddressBookModel.h \
     src/libwalletqt/AddressBook.h \
+    src/model/SubaddressModel.h \
+    src/libwalletqt/Subaddress.h \
     src/zxcvbn-c/zxcvbn.h \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h
@@ -58,9 +66,17 @@ SOURCES += main.cpp \
     src/QR-Code-generator/QrSegment.cpp \
     src/model/AddressBookModel.cpp \
     src/libwalletqt/AddressBook.cpp \
+    src/model/SubaddressModel.cpp \
+    src/libwalletqt/Subaddress.cpp \
     src/zxcvbn-c/zxcvbn.c \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp
+
+CONFIG(DISABLE_PASS_STRENGTH_METER) {
+    HEADERS -= src/zxcvbn-c/zxcvbn.h
+    SOURCES -= src/zxcvbn-c/zxcvbn.c
+    DEFINES += "DISABLE_PASS_STRENGTH_METER"
+}
 
 !ios {
     HEADERS += src/daemon/DaemonManager.h
@@ -86,14 +102,29 @@ ios:arm64 {
     LIBS += \
         -L$$PWD/../ofxiOSBoost/build/libs/boost/lib/arm64 \
 }
-!ios {
+!ios:!android {
 LIBS += -L$$WALLET_ROOT/lib \
         -lwallet_merged \
+        -llmdb \
+        -lepee \
+        -lunbound \
+        -leasylogging \
+}
+
+android {
+    message("Host is Android")
+    LIBS += -L$$WALLET_ROOT/lib \
+        -lwallet_merged \
+        -llmdb \
         -lepee \
         -lunbound \
         -leasylogging
 }
 
+
+
+QMAKE_CXXFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -Wformat -Wformat-security -fstack-protector -fstack-protector-strong
+QMAKE_CFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -Wformat -Wformat-security -fstack-protector -fstack-protector-strong
 
 ios {
     message("Host is IOS")
@@ -103,8 +134,10 @@ ios {
     CONFIG += arm64
     LIBS += -L$$WALLET_ROOT/lib-ios \
         -lwallet_merged \
+        -llmdb \
         -lepee \
-        -lunbound
+        -lunbound \
+        -leasylogging
 
     LIBS+= \
         -L$$PWD/../OpenSSL-for-iPhone/lib \
@@ -187,14 +220,21 @@ win32 {
     
     LIBS+= \
         -Wl,-Bstatic \
-        -lboost_serialization-mt-s \
-        -lboost_thread-mt-s \
-        -lboost_system-mt-s \
-        -lboost_date_time-mt-s \
-        -lboost_filesystem-mt-s \
-        -lboost_regex-mt-s \
-        -lboost_chrono-mt-s \
-        -lboost_program_options-mt-s \
+        -lboost_serialization-mt \
+        -lboost_thread-mt \
+        -lboost_system-mt \
+        -lboost_date_time-mt \
+        -lboost_filesystem-mt \
+        -lboost_regex-mt \
+        -lboost_chrono-mt \
+        -lboost_program_options-mt \
+        -lboost_locale-mt \
+        -licuio \
+        -licuin \
+        -licuuc \
+        -licudt \
+        -licutu \
+        -liconv \
         -lssl \
         -lcrypto \
         -Wl,-Bdynamic \
@@ -213,6 +253,7 @@ win32 {
         message("Target is 64bit")
     }
 
+    QMAKE_LFLAGS += -Wl,--dynamicbase -Wl,--nxcompat
 }
 
 linux {
@@ -238,6 +279,7 @@ linux {
         -lboost_chrono \
         -lboost_program_options \
         -lssl \
+        -llmdb \
         -lcrypto
 
     if(!android) {
@@ -253,6 +295,8 @@ linux {
         message(Building with libunwind)
         LIBS += -Wl,-Bdynamic -lunwind
     }
+
+    QMAKE_LFLAGS += -pie -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack
 }
 
 macx {
@@ -276,7 +320,9 @@ macx {
         -lssl \
         -lcrypto \
         -ldl
+    LIBS+= -framework PCSC
 
+    QMAKE_LFLAGS += -pie
 }
 
 
@@ -303,6 +349,16 @@ TRANSLATIONS =  \ # English is default language, no explicit translation file
                 $$PWD/translations/monero-core_zh-tw.ts \ # Chinese (Traditional-Taiwan)
                 $$PWD/translations/monero-core_he.ts \ # Hebrew
                 $$PWD/translations/monero-core_ko.ts \ # Korean
+                $$PWD/translations/monero-core_ro.ts \ # Romanian
+                $$PWD/translations/monero-core_da.ts \ # Danish
+                $$PWD/translations/monero-core_cs.ts \ # Czech
+                $$PWD/translations/monero-core_sk.ts \ # Slovak
+                $$PWD/translations/monero-core_sl.ts \ # Slovenian
+                $$PWD/translations/monero-core_rs.ts \ # Serbian
+                $$PWD/translations/monero-core_cat.ts \ # Catalan
+                $$PWD/translations/monero-core_tr.ts \ # Turkish
+                $$PWD/translations/monero-core_ua.ts \ # Ukrainian
+                $$PWD/translations/monero-core_pt-pt.ts \ # Portuguese (Portugal)
 
 CONFIG(release, debug|release) {
     DESTDIR = release/bin
