@@ -250,7 +250,7 @@ Rectangle {
                     Layout.bottomMargin: 20 * scaleRatio
 
                     lineEditBackgroundColor: "transparent"
-                    lineEditFontColor: "white"
+                    lineEditFontColor: "black"
                     lineEditBorderColor: Qt.rgba(255, 255, 255, 0.35)
 
                     daemonAddrLabelText: qsTr("Address")
@@ -259,7 +259,7 @@ Rectangle {
                     daemonPortText: {
                         var node_split = persistentSettings.bootstrapNodeAddress.split(":");
                         if(node_split.length == 2){
-                            (node_split[1].trim() == "") ? "18081" : node_split[1];
+                            (node_split[1].trim() == "") ? "38081" : node_split[1];
                         } else {
                             return ""
                         }
@@ -282,7 +282,7 @@ Rectangle {
                     Layout.minimumWidth: 100 * scaleRatio
 
                     lineEditBackgroundColor: "transparent"
-                    lineEditFontColor: "white"
+                    lineEditFontColor: "black"
                     lineEditBorderColor: Qt.rgba(255, 255, 255, 0.35)
 
                     daemonAddrLabelText: qsTr("Address")
@@ -800,7 +800,3 @@ Rectangle {
 
 
 }
-
-
-
-
