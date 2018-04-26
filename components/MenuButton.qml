@@ -61,18 +61,6 @@ Rectangle {
     property bool present: !under || under.checked || checked || under.numSelectedChildren > 0
     height: present ? ((appWindow.height >= 800) ? 44 * scaleRatio  : 38 * scaleRatio ) : 0
 
-    // button gradient while checked
-    Image {
-        height: parent.height
-        width: 260
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.right: parent.right
-        anchors.rightMargin: -20
-        anchors.leftMargin: parent.getOffset()
-        source: "../images/menuButtonGradient.png"
-        visible: button.checked
-    }
-
     // button decorations that are subject to leftMargin offsets
     Rectangle {
         anchors.left: parent.left
