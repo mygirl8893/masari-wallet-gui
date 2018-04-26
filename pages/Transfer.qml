@@ -225,20 +225,19 @@ Rectangle {
                    id: priorityModelV5
 
                    ListElement { column1: qsTr("Default") ; column2: ""; priority: 0}
-                   ListElement { column1: qsTr("Slow (x0.25 fee)") ; column2: ""; priority: 1}
-                   ListElement { column1: qsTr("Normal (x1 fee)") ; column2: ""; priority: 2 }
-                   ListElement { column1: qsTr("Fast (x5 fee)") ; column2: ""; priority: 3 }
-                   ListElement { column1: qsTr("Fastest (x41.5 fee)")  ; column2: "";  priority: 4 }
+                   ListElement { column1: qsTr("Low (x1 fee)") ; column2: ""; priority: 1}
+                   ListElement { column1: qsTr("Medium (x2 fee)") ; column2: ""; priority: 2 }
+                   ListElement { column1: qsTr("High (x3 fee)") ; column2: ""; priority: 3 }
                }
 
               StandardDropdown {
                   Layout.fillWidth: true
                   id: priorityDropdown
                   Layout.topMargin: 6
-                  shadowReleasedColor: "#FF4304"
-                  shadowPressedColor: "#B32D00"
-                  releasedColor: "#363636"
-                  pressedColor: "#202020"
+                  shadowReleasedColor: "black"
+                  shadowPressedColor: "black"
+                  releasedColor: "black"
+                  pressedColor: "black"
               }
           }
           // Make sure dropdown is on top
@@ -443,7 +442,7 @@ Rectangle {
         }
 
         RowLayout {
-            visible: persistentSettings.transferShowAdvanced
+            visible: false
             anchors.left: parent.left
             anchors.right: parent.right
             Layout.fillWidth: true
@@ -462,7 +461,7 @@ Rectangle {
         }
 
         PrivacyLevel {
-            visible: persistentSettings.transferShowAdvanced && !isMobile
+            visible: false
             id: privacyLevelItem
             anchors.left: parent.left
             anchors.right: parent.right
@@ -471,7 +470,7 @@ Rectangle {
         }
 
         PrivacyLevelSmall {
-            visible: persistentSettings.transferShowAdvanced && isMobile
+            visible: false
             id: privacyLevelItemSmall
             anchors.left: parent.left
             anchors.right: parent.right
