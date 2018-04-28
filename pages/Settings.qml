@@ -117,7 +117,7 @@ Rectangle {
                 id: rescanWalletbutton
                 shadowReleasedColor: "#FF4304"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
+                releasedColor: "#4CB860"
                 pressedColor: "#FF4304"
                 text: qsTr("Rescan wallet cache") + translationManager.emptyString
                 onClicked: {
@@ -636,7 +636,7 @@ Rectangle {
             Layout.fillWidth: true
             font.pixelSize: 14
             textFormat: Text.RichText
-            property var txt: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C}</style>" + qsTr("Wallet creation height: ") + (currentWallet ? currentWallet.walletCreationHeight : "") + translationManager.emptyString
+            property var txt: "<style type='text/css'>a {text-decoration: none; color: #4CB860}</style>" + qsTr("Wallet creation height: ") + (currentWallet ? currentWallet.walletCreationHeight : "") + translationManager.emptyString
             property var linkTxt: qsTr(" <a href='#'>(Click to change)</a>") + translationManager.emptyString
             text: (typeof currentWallet == "undefined") ? "" : txt + linkTxt
 
