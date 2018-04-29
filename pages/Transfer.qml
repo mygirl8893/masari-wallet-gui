@@ -49,7 +49,7 @@ Rectangle {
     Clipboard { id: clipboard }
 
     function scaleValueToMixinCount(scaleValue) {
-        var scaleToMixinCount = [6,7,8,9,10,11,12,13,14,16,18,20,22,25];
+        var scaleToMixinCount = [12];
         if (scaleValue < scaleToMixinCount.length) {
             return scaleToMixinCount[scaleValue];
         } else {
@@ -225,10 +225,9 @@ Rectangle {
                    id: priorityModelV5
 
                    ListElement { column1: qsTr("Default") ; column2: ""; priority: 0}
-                   ListElement { column1: qsTr("Slow (x0.25 fee)") ; column2: ""; priority: 1}
-                   ListElement { column1: qsTr("Normal (x1 fee)") ; column2: ""; priority: 2 }
-                   ListElement { column1: qsTr("Fast (x5 fee)") ; column2: ""; priority: 3 }
-                   ListElement { column1: qsTr("Fastest (x41.5 fee)")  ; column2: "";  priority: 4 }
+                   ListElement { column1: qsTr("Low (x1 fee)") ; column2: ""; priority: 1}
+                   ListElement { column1: qsTr("Medium (x2 fee)") ; column2: ""; priority: 2 }
+                   ListElement { column1: qsTr("High (x3 fee)") ; column2: ""; priority: 3 }
                }
 
               StandardDropdown {
@@ -680,3 +679,4 @@ Rectangle {
         descriptionLine.text = description
     }
 }
+
