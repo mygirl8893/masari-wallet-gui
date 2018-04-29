@@ -91,7 +91,7 @@ ListView {
             font.family: "Arial"
             font.bold: true
             font.pixelSize: 12
-            color: "#444444"
+            color: MoneroComponents.Style.greyFontColor
             text: "#" + index
         }
 
