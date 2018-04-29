@@ -15,8 +15,8 @@
     </message>
     <message>
         <location filename="../pages/AddressBook.qml" line="74"/>
-        <source>4...</source>
-        <translation>4...</translation>
+        <source>5...</source>
+        <translation>5...</translation>
     </message>
     <message>
         <location filename="../pages/AddressBook.qml" line="80"/>
