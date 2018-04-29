@@ -88,9 +88,9 @@ int main(int argc, char *argv[])
 
     qDebug() << "app startd";
 
-    app.setApplicationName("monero-core");
-    app.setOrganizationDomain("getmonero.org");
-    app.setOrganizationName("monero-project");
+    app.setApplicationName("masari-gui");
+    app.setOrganizationDomain("getmasari.org");
+    app.setOrganizationName("masari-project");
 
     #if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
     app.setWindowIcon(QIcon(":/images/appicon.ico"));
