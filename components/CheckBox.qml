@@ -34,7 +34,7 @@ import "../components" as MoneroComponents
 RowLayout {
     id: checkBox
     property alias text: label.text
-    property string checkedIcon: "../images/checkedIcon-black.png"
+    property string checkedIcon: "../images/checkedBlackIcon.png"
     property string uncheckedIcon
     property bool checked: false
     property alias background: backgroundRect.color
