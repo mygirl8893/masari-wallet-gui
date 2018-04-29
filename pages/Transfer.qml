@@ -428,7 +428,7 @@ Rectangle {
         }
 
         RowLayout {
-            visible: persistentSettings.transferShowAdvanced
+            visible: false
             anchors.left: parent.left
             anchors.right: parent.right
             Layout.fillWidth: true
@@ -447,7 +447,7 @@ Rectangle {
         }
 
         PrivacyLevel {
-            visible: persistentSettings.transferShowAdvanced && !isMobile
+            visible: false
             id: privacyLevelItem
             anchors.left: parent.left
             anchors.right: parent.right
@@ -456,7 +456,7 @@ Rectangle {
         }
 
         PrivacyLevelSmall {
-            visible: persistentSettings.transferShowAdvanced && isMobile
+            visible: false
             id: privacyLevelItemSmall
             anchors.left: parent.left
             anchors.right: parent.right
@@ -473,6 +473,7 @@ Rectangle {
 
             StandardButton {
                 id: sweepUnmixableButton
+                visible: false
                 text: qsTr("Sweep Unmixable") + translationManager.emptyString
                 enabled : pageRoot.enabled
                 small: true
