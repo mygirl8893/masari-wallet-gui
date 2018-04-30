@@ -454,7 +454,7 @@ OTHER_FILES += \
 
 DISTFILES += \
     notes.txt \
-    monero/src/wallet/CMakeLists.txt \
+    masari/src/wallet/CMakeLists.txt \
     components/MobileHeader.qml
 
 

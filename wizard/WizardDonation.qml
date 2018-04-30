@@ -90,7 +90,7 @@ Item {
         wrapMode: Text.Wrap
         //renderType: Text.NativeRendering
         color: "#3F3F3F"
-        text: qsTr("The development of Masari is funded soley by donations with no pre-mine or ICO") + translationManager.emptyString
+        text: qsTr("Masari development is solely supported by donations") + translationManager.emptyString
     }
 
     Column {
@@ -161,7 +161,7 @@ Item {
             wrapMode: Text.Wrap
             text: qsTr("For every transaction, a small transaction fee is charged. This option lets you add an additional amount, " +
                        "as a percentage of that fee, to your transaction to support Masari development. For instance, a 50% " +
-                       "autodonation take a transaction fee of 0.005 XMR and add a 0.0025 MSR to support Masari development.")
+                       "autodonation take a transaction fee of 0.005 MSR and add a 0.0025 MSR to support Masari development.")
                     + translationManager.emptyString
         }
         Column {

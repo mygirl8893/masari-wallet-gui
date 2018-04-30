@@ -1921,8 +1921,8 @@ For the case with Spend Proof, you don&apos;t need to specify the recipient addr
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>За кожну транзакцію береться невелика комісія. Ця опція дозволяє вам додати додаткову суму в процентах від цієї комісії до транзакції для підтримки розробки Monero. Наприклад, 50% автодотації беруть плату за транзакцію 0,005 XMR і додають 0,0025 XMR на користь підтримки розробки Monero.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 MSR and add a 0.0025 MSR to support Monero development.</source>
+        <translation>За кожну транзакцію береться невелика комісія. Ця опція дозволяє вам додати додаткову суму в процентах від цієї комісії до транзакції для підтримки розробки Monero. Наприклад, 50% автодотації беруть плату за транзакцію 0,005 MSR і додають 0,0025 MSR на користь підтримки розробки Monero.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -2435,7 +2435,7 @@ Fee: </source>
     <message>
         <location filename="../main.qml" line="822"/>
         <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>Ця адреса отримала %1 XMR, з %2 підтвердженнями</translation>
+        <translation>Ця адреса отримала %1 MSR, з %2 підтвердженнями</translation>
     </message>
     <message>
         <location filename="../main.qml" line="833"/>
@@ -2511,7 +2511,7 @@ Fee: </source>
     <message>
         <location filename="../main.qml" line="819"/>
         <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>Ця адреса отримала %1 XMR, але транзакції ще не підтверждені майнерами</translation>
+        <translation>Ця адреса отримала %1 MSR, але транзакції ще не підтверждені майнерами</translation>
     </message>
     <message>
         <location filename="../main.qml" line="826"/>

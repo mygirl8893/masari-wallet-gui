@@ -74,7 +74,7 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
 
 
 
-    qDebug() << "starting monerod " + m_monerod;
+    qDebug() << "starting masarid " + m_monerod;
     qDebug() << "With command line arguments " << arguments;
 
     m_daemon = new QProcess();
@@ -166,9 +166,9 @@ bool DaemonManager::stopWatcher(NetworkType::Type nettype) const
             if(counter >= 5) {
                 qDebug() << "Killing it! ";
 #ifdef Q_OS_WIN
-                QProcess::execute("taskkill /F /IM monerod.exe");
+                QProcess::execute("taskkill /F /IM masarid.exe");
 #else
-                QProcess::execute("pkill monerod");
+                QProcess::execute("pkill masarid");
 #endif
             }
 

@@ -1906,8 +1906,8 @@ Harcama Kanıtı ile ilgili davada, alıcı adresini belirtmeniz gerekmez. </tra
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>Her işlem için küçük bir işlem ücreti alınır. Bu seçenek, Monero&apos;nun geliştirilmesini desteklemek için işleminize, bu ücretin bir yüzdesi olarak ek bir miktar eklemenize izin verir. Örneğin %50 otomatik bağış, 0.005 XMR işlem ücreti alır ve Monero gelişimini desteklemek için 0.0025 XMR ekler.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 MSR and add a 0.0025 MSR to support Monero development.</source>
+        <translation>Her işlem için küçük bir işlem ücreti alınır. Bu seçenek, Monero&apos;nun geliştirilmesini desteklemek için işleminize, bu ücretin bir yüzdesi olarak ek bir miktar eklemenize izin verir. Örneğin %50 otomatik bağış, 0.005 MSR işlem ücreti alır ve Monero gelişimini desteklemek için 0.0025 MSR ekler.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>

@@ -2,4 +2,4 @@
 
 set QMLSCENE_DEVICE=softwarecontext
 
-start /b monero-wallet-gui.exe
+start /b masari-wallet-gui.exe
