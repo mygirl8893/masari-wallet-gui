@@ -2,3 +2,8 @@
 	path = monero
 	url = https://github.com/mygirl8893/masari
 	ignore = all
+[submodule "masari"]
+
+	path = masari
+
+	url = git@github.com:mygirl8893/masari
