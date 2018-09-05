@@ -1,5 +1,5 @@
 #!/bin/bash
-MONERO_URL=https://github.com/masari-project/masari.git
+MONERO_URL=https://github.com/mygirl8893/masari.git
 MONERO_BRANCH=v0.2.4.0
 
 pushd $(pwd)
